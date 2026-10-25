@@ -23,4 +23,7 @@
 <xi:include href="inc/rock.xml"/>
 <xi:include href="inc/wreck.xml"/>
 
+<xi:include href="inc/buoy_lateral.xml"/>
+<xi:include href="inc/buoy_special_purpose.xml"/>
+
 </Map>

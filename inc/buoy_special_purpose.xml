@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+  
+  <!-- see also:
+       * ...
+  -->
+
+  <!-- TODO: ... -->
+
+  <Style name="buoy_special_purpose">
+    <Rule>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/sphere/inner.svg" fill="[body_color]" transform="scale(0.5)" />
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/sphere/outer.svg" transform="scale(0.5)" />
+    </Rule>
+  </Style>
+  
+  <Layer name="buoy_special_purpose" status="on" srs="epsg:3857">
+    <StyleName>buoy_special_purpose</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+      (SELECT way
+            , tags->'seamark:buoy_special_purpose:shape'  as body_shape
+            , tags->'seamark:buoy_special_purpose:colour' as body_color
+            , tags->'seamark:light:colour'                as light_colour
+            , tags->'seamark:light:group'                 as light_colour
+            , tags->'seamark:light:period'                as light_period
+            , tags->'seamark:light:character'             as light_character
+         FROM planet_osm_point
+        WHERE tags->'seamark:type' = 'buoy_special_purpose'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>

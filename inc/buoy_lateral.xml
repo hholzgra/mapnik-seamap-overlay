@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+  
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=buoy%20lateral
+  -->
+
+  <!-- TODO: ... -->
+
+  <Style name="buoy_lateral_inner">
+    <Rule>
+      <Filter>
+        ([category] = 'starboard') or ([category] = 'water_left') or ([category] = 'channel_left')
+      </Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/cone/inner.svg" fill="green" transform="scale(0.5)" />
+    </Rule>
+    <Rule>
+      <Filter>
+        ([category] = 'port') or ([category] = 'water_right') or ([category] = 'channel_right')
+      </Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/cone/inner.svg" fill="green" transform="scale(0.5)" />
+    </Rule>
+    <Rule>
+      <ElseFilter/>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/cone/inner.svg" fill="magenta" transform="scale(0.5)" />
+    </Rule>
+  </Style>
+  
+  <Style name="buoy_lateral_outer">
+    <Rule>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/cone/outer.svg" transform="scale(0.5)" />
+    </Rule>
+  </Style>
+  
+  <Layer name="buoy_lateral" status="on" srs="epsg:3857">
+    <StyleName>buoy_lateral_inner</StyleName>
+    <StyleName>buoy_lateral_outer</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+      (SELECT way
+            , tags->'seamark:buoy_lateral:category'  as category
+            , tags->'seamark:buoy_lateral:shape'     as shape      
+         FROM planet_osm_point
+        WHERE tags->'seamark:type' = 'buoy_lateral'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
