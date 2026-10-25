@@ -16,4 +16,8 @@
 
 <xi:include href="inc/seamark_light.xml"/>
 
+<xi:include href="inc/harbour.xml"/>
+<xi:include href="inc/anchorage.xml"/>
+
+
 </Map>

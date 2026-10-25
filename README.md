@@ -21,6 +21,7 @@ So far only renders sea lights and their visibility sector arcs,
 plus a few selected other symbols:
 
 * harbours and marinas
+* anchorage areas
 
 ## Requirements
 
