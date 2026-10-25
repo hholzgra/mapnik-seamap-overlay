@@ -18,7 +18,9 @@ get  useful map prints out of it.
 ## Things rendered
 
 So far only renders sea lights and their visibility sector arcs,
-more to follow.
+plus a few selected other symbols:
+
+* harbours and marinas
 
 ## Requirements
 
