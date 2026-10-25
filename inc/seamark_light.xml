@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+  
+  <!-- see also:
+       * ...
+  -->
+
+  <!-- TODO: ... -->
+
+  <Style name="seamark_light">
+    <Rule>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/light/major.svg"/>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/light/light.svg" fill="[colour]" transform="translate(15.5,10) rotate(120) scale(0.3)"/> 
+    </Rule>
+    <!--
+    <Rule>
+      <MaxScaleDenominator>100000</MaxScaleDenominator>
+      <Filter>[has_sector] = 0 and [label] != ''</Filter>
+      <TextSymbolizer face-name="DejaVu Sans Book" size="9" fill="#333333"
+                      halo-fill="#ffffff" halo-radius="1.5"
+                      dx="0" dy="9" placement="point" allow-overlap="true">[label]</TextSymbolizer>
+		      </Rule>
+		      -->
+  </Style>
+  
+  <Layer name="seamark_light" status="on" srs="epsg:3857">
+    <StyleName>seamark_light</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+	(SELECT way
+              , seamark_light_flare_colour(tags) AS colour
+	      , COALESCE(seamark_light_label( COALESCE( tags->'seamark:light:1:character'
+                                                      , tags->'seamark:light:character'
+	                                              )
+                                            , COALESCE( tags->'seamark:light:1:group'
+                                                      , tags->'seamark:light:group'
+					              )
+                                            , COALESCE( tags->'seamark:light:1:period'
+                                                      , tags->'seamark:light:period'
+					              )
+				            )
+				            , ''
+			 ) AS label
+              , seamark_has_light_sector(tags)::int AS has_sector
+           FROM planet_osm_point
+          WHERE seamark_has_light(tags)
+       ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+  <Style name="seamark_light_sector">
+    <Rule>
+      <MaxScaleDenominator>100000</MaxScaleDenominator>
+      <ArcSymbolizer radius="100" start-angle="[sector_start]" end-angle="[sector_end]"
+                     stroke="[colour]" stroke-width="2" stroke-opacity="0.9"
+                     radius-lines="true" 
+                     radius-stroke="dimgray" radius-stroke-width="0.5"
+                     radius-stroke-dasharray="6,4"
+                     text="[label]" text-face-name="DejaVu Sans Book" text-size="9"
+                     text-fill="#333333" text-halo-fill="#ffffff" text-halo-radius="1.5" text-offset="4"/>
+    </Rule>
+  </Style>
+
+  <Layer name="seamark_light_sector" status="on" srs="epsg:3857">
+    <StyleName>seamark_light_sector</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT p.way,
+                s.colour,
+                s.sector_start,
+                s.sector_end,
+                COALESCE(s.label, '') AS label
+           FROM planet_osm_point p
+          CROSS JOIN LATERAL seamark_light_sectors(p.tags) s
+          WHERE seamark_has_light_sector(p.tags)
+       ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
