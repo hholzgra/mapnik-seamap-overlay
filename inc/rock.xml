@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+  
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/DE:Tag:seamark:type=rock
+  -->
+
+  <!-- TODO: ... -->
+
+  <Style name="rock">
+    <Rule>
+      <Filter>[level]='awash'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/rock/awash.svg" transform="scale(0.5)" />
+    </Rule>
+    <Rule>
+      <Filter>[level]='covers'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/rock/covers.svg" transform="scale(0.5)" />
+    </Rule>
+    <Rule>
+      <ElseFilter/>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/rock/rock.svg" transform="scale(0.5)" />
+    </Rule>
+  </Style>
+  
+  <Layer name="rock" status="on" srs="epsg:3857">
+    <StyleName>rock</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way, tags->'seamark:rock:water_level' as level
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'rock'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>

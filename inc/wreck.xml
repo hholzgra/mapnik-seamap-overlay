@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+  
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Seamarks/Wrecks
+  -->
+
+  <!-- TODO: ... -->
+
+  <Style name="wreck">
+    <Rule>
+      <Filter>[category]='non-dangerous' or [category]='distributed_remains'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/wreck/non_dangerous.svg" transform="scale(0.5)" />
+    </Rule>
+    <Rule>
+      <Filter>[category]='dangerous' or [category]='mast_showing'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/wreck/dangerous.svg" transform="scale(0.5)" />
+    </Rule>
+    <Rule>
+      <Filter>[category]='hull_showing'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/wreck/showing.svg" transform="scale(0.5)" />
+    </Rule>
+    <Rule>
+      <ElseFilter/>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/wreck/dangerous.svg" transform="scale(0.5)" />
+    </Rule>
+  </Style>
+
+  <Layer name="wreck" status="on" srs="epsg:3857">
+    <StyleName>wreck</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+	(SELECT way
+              , tags->'seamark:wreck:category' as category
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'wreck'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+</Include>

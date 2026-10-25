@@ -20,5 +20,7 @@
 <xi:include href="inc/anchorage.xml"/>
 <xi:include href="inc/restricted_area.xml"/>
 
+<xi:include href="inc/rock.xml"/>
+<xi:include href="inc/wreck.xml"/>
 
 </Map>
