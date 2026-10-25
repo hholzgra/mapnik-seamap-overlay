@@ -18,6 +18,7 @@
 
 <xi:include href="inc/harbour.xml"/>
 <xi:include href="inc/anchorage.xml"/>
+<xi:include href="inc/restricted_area.xml"/>
 
 
 </Map>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+  
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=dumping
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=restricted%20area
+       
+       Note: we exclude boundary=protected_area as these are already rendered
+             by openstreetmap-carto
+  -->
+
+  <!-- TODO: make separate file for dumping grounds? -->
+
+  <Style name="restricted_area">
+    <Rule>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/anchorage/restricted.svg" placement="line" spacing="10" transform="scale(0.5) rotate(180) translate(0,2.5)"/>
+    </Rule>
+  </Style>
+  
+  <Layer name="restricted_area" status="on" srs="epsg:3857">
+    <StyleName>restricted_area</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+	(
+	SELECT ST_MakePolygon(way) as way
+             , COALESCE(tags->'seamark:restricted_area:category','none') as category
+          FROM planet_osm_line
+         WHERE tags->'seamark:type' IN ('restricted_area', 'dumping_ground')
+  	   AND (boundary is null or boundary != 'protected_area')
+	 UNION
+	SELECT way
+             , COALESCE(tags->'seamark:restricted_area:category','none') as category
+          FROM planet_osm_polygon
+         WHERE tags->'seamark:type' IN ('restricted_area', 'dumping_ground')
+  	   AND (boundary is null or boundary != 'protected_area')
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>

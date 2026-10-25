@@ -22,6 +22,7 @@ plus a few selected other symbols:
 
 * harbours and marinas
 * anchorage areas
+* restricted areas
 
 ## Requirements
 
