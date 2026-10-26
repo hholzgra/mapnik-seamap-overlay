@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
 <Include xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <!-- see also:
@@ -11,10 +15,12 @@
 
   <Style name="landmark">
     <Rule>
+      &maxscale_zoom12;
       <Filter>[category]='mast'</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/mast.svg" transform="scale(4) translate(0,-8)"/>
     </Rule>
     <Rule>
+      &maxscale_zoom12;
       <Filter>[category]='chimney'</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/chimney.svg" transform="scale(4) translate(0,-8)"/>
     </Rule>
