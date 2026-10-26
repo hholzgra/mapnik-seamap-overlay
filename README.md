@@ -24,7 +24,11 @@ plus a few selected other symbols:
 * anchorage areas
 * restricted areas
 * rocks and wrecks
-* some first buoys: lateral and special purpose
+* navigation lines
+* radio stations
+* rescue stations
+* landmarks
+* some first buoys and beacons: lateral and special purpose
 
 ## Requirements
 
