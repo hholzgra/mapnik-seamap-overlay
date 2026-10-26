@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
 <Include xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <!-- see also:
@@ -7,6 +11,7 @@
 
   <Style name="rescue_station">
     <Rule>
+      &maxscale_zoom14;
       <MarkersSymbolizer allow-overlap="true" file="symbols/rescue/station.svg"/>
     </Rule>
   </Style>
