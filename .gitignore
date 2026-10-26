@@ -6,6 +6,9 @@
 
 # ignore local hidden files and directories
 /.*
+# hidden files actually ok to include
+!.gitignore
+!/.pre-commit-config.yaml 
 
 # include stuff that should not end up on git
 not-for-git
