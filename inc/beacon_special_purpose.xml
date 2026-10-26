@@ -18,15 +18,14 @@
     <StyleName>beacon_special_purpose</StyleName>
     <Datasource base="gis">
       <Parameter name="table">
-      (SELECT way
-            , tags->'seamark:beaco_special_purpose:shape'  as body_shape
-         FROM planet_osm_point
-        WHERE tags->'seamark:type' = 'beacon_special_purpose'
-        ) AS way
+        (SELECT way
+              , tags->'seamark:beaco_special_purpose:shape'  as body_shape
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'beacon_special_purpose'
+          ) AS way
       </Parameter>
       <Parameter name="geometry_field">way</Parameter>
     </Datasource>
   </Layer>
 
 </Include>
-

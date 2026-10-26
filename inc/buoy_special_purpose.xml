@@ -18,16 +18,16 @@
     <StyleName>buoy_special_purpose</StyleName>
     <Datasource base="gis">
       <Parameter name="table">
-      (SELECT way
-            , tags->'seamark:buoy_special_purpose:shape'  as body_shape
-            , tags->'seamark:buoy_special_purpose:colour' as body_color
-            , tags->'seamark:light:colour'                as light_colour
-            , tags->'seamark:light:group'                 as light_colour
-            , tags->'seamark:light:period'                as light_period
-            , tags->'seamark:light:character'             as light_character
-         FROM planet_osm_point
-        WHERE tags->'seamark:type' = 'buoy_special_purpose'
-        ) AS way
+        (SELECT way
+              , tags->'seamark:buoy_special_purpose:shape'  as body_shape
+              , tags->'seamark:buoy_special_purpose:colour' as body_color
+              , tags->'seamark:light:colour'                as light_colour
+              , tags->'seamark:light:group'                 as light_colour
+              , tags->'seamark:light:period'                as light_period
+              , tags->'seamark:light:character'             as light_character
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'buoy_special_purpose'
+          ) AS way
       </Parameter>
       <Parameter name="geometry_field">way</Parameter>
     </Datasource>

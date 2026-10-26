@@ -61,7 +61,7 @@
               , seamark_light_flare_colour(tags) AS colour
               , COALESCE(seamark_light_characteristics(tags), '') AS label
               , seamark_has_light_sector(tags)::int AS has_sector
-	      , tags->'seamark:name' as name		 
+              , tags->'seamark:name' as name
            FROM planet_osm_point
           WHERE seamark_has_light(tags)
        ) AS way

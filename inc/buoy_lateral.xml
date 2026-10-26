@@ -37,12 +37,12 @@
     <StyleName>buoy_lateral_outer</StyleName>
     <Datasource base="gis">
       <Parameter name="table">
-      (SELECT way
-            , tags->'seamark:buoy_lateral:category'  as category
-            , tags->'seamark:buoy_lateral:shape'     as shape
-         FROM planet_osm_point
-        WHERE tags->'seamark:type' = 'buoy_lateral'
-        ) AS way
+        (SELECT way
+              , tags->'seamark:buoy_lateral:category'  as category
+              , tags->'seamark:buoy_lateral:shape'     as shape
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'buoy_lateral'
+          ) AS way
       </Parameter>
       <Parameter name="geometry_field">way</Parameter>
     </Datasource>
