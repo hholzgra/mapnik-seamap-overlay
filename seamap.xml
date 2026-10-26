@@ -27,4 +27,6 @@
   <xi:include href="inc/beacon_special_purpose.xml"/>
 
   <xi:include href="inc/navigation_line.xml"/>
+
+  <xi:include href="inc/rescue_station.xml"/>
 </Map>

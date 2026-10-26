@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=rescue%20station
+  -->
+
+  <Style name="rescue_station">
+    <Rule>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/rescue/station.svg"/>
+    </Rule>
+  </Style>
+
+  <Layer name="rescue_station" status="on" srs="epsg:3857">
+    <StyleName>rescue_station</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (
+         SELECT way
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'rescue_station'
+         UNION
+         SELECT ST_MakePolygon(way)
+           FROM planet_osm_line
+          WHERE tags->'seamark:type' = 'rescue_station'
+         UNION
+         SELECT way
+           FROM planet_osm_polygon
+          WHERE tags->'seamark:type' = 'rescue_station'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
