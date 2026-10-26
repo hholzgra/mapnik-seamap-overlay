@@ -4,9 +4,8 @@ Note: see also TODO: entries in actual style files
 
 ## Short term
 
-* add missing "simple" symbols, mostly thouse not requiring
-  any colouring or top marker modifications
-* add zoom level restrictions
+* add missing "simple" symbols
+* finish zoom level restrictions
 * improve feature scaling
 * ...
 

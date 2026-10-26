@@ -20,6 +20,7 @@ get  useful map prints out of it.
 So far only renders sea lights and their visibility sector arcs,
 plus a few selected other symbols:
 
+* beacon and buoy shapes, but colors and topmarks are not rendered
 * harbours and marinas
 * anchorage areas
 * restricted areas
@@ -29,7 +30,6 @@ plus a few selected other symbols:
 * rescue stations
 * landmarks
 * fog horns
-* some first buoys and beacons: lateral and special purpose
 
 ## Requirements
 
