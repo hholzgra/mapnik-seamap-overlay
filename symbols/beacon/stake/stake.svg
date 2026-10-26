@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="20" height="20" viewBox="0 0 20 20">
+  <rect width="20" height="20" fill="none" stroke="none" />
+  <g transform="matrix(0.682517,0,0,0.682517,-24.1247,-27.3510)">
+    <g transform="scale(0.333333)">
+      <g id="stake" width="300" height="400">
+        <path d="m 139.72,202.27 v -4.6 l 7.8,-0.0107 v -71.577 h 4.9625 l 0.022,71.577 7.7655,0.022 v 4.5887 h -20.55" />
+      </g>
+    </g>
+  </g>
+</svg>
