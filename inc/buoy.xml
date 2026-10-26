@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Seamarks/Buoys
+  -->
+
+  <!-- TODO: only renders general buoy shape so far, no colors, no top markers -->
+
+  <Style name="buoy">
+    <Rule>
+      <Filter>[body_shape] = 'conical'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/cone/outer.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+    <Rule>
+      <Filter>[body_shape] = 'can'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/can/outer.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+    <Rule>
+      <Filter>[body_shape] = 'spherical'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/sphere/outer.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+    <Rule>
+      <Filter>[body_shape] = 'pillar'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/pillar/outer.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+    <Rule>
+      <Filter>[body_shape] = 'spar'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/spar/outer.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+    <Rule>
+      <Filter>[body_shape] = 'barrel'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/barrel/outer.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+    <Rule>
+      <Filter>[body_shape] = 'super-buoy'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/installation/outer.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+    <Rule>
+      <ElseFilter/>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/spar/outer.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+  </Style>
+
+  <Layer name="buoy" status="on" srs="epsg:3857">
+    <StyleName>buoy</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (
+          SELECT way
+               , tags->CONCAT('seamark:',tags->'seamark:type',':shape') as body_shape
+            FROM planet_osm_point
+           WHERE tags->'seamark:type' LIKE  'buoy%'
+         ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
