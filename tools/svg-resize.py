@@ -4,10 +4,11 @@ all files so relative symbol sizes are kept.
 
 By default each drawing is centred on its bounding box. With --anchor-bottom
 the bottom centre of the original document (e.g. the foot of a top mark's
-stalk) is put at the bottom centre of the new document instead. As Mapnik
-centres markers on the bounding box of what is drawn, not on the document,
-an invisible rect covering the whole document is added in that case so
-that the document frame defines the marker's position.
+stalk) is put at the bottom centre of the new document instead.
+
+As Mapnik centres markers on the bounding box of what is drawn, not on the
+document, an invisible rect covering the whole document is added so that
+the document frame defines the marker's position.
 
 usage: svg-resize.py [--anchor-bottom] SIZE file.svg...
        (files are rewritten in place)"""
@@ -69,9 +70,8 @@ for f, (x0, y0, x1, y1) in boxes.items():
     root.set('width', '%g' % size)
     root.set('height', '%g' % size)
     root.set('viewBox', '0 0 %g %g' % (size, size))
-    if anchor_bottom:
-        ET.SubElement(root, '{%s}rect' % NS, width='%g' % size, height='%g' % size,
-                      fill='none', stroke='none')
+    ET.SubElement(root, '{%s}rect' % NS, width='%g' % size, height='%g' % size,
+                  fill='none', stroke='none')
     root.append(g)
     ET.indent(root, space='  ')
     ET.ElementTree(root).write(f, encoding='UTF-8', xml_declaration=True)

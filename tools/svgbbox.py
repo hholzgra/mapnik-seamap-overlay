@@ -195,8 +195,10 @@ def walk(el, m, st, acc):
     if st.get('display') == 'none':
         return
     pts = shape_points(el, tag)
+    has_stroke = st.get('stroke', 'none') not in ('none', '')
+    if st.get('fill') in ('none', '') and not has_stroke:
+        pts = []    # invisible, e.g. a frame rect
     if pts:
-        has_stroke = st.get('stroke', 'none') not in ('none', '')
         sw = float(re.match(NUM, st.get('stroke-width', '1')).group()) if has_stroke else 0.0
         scale = math.sqrt(abs(m[0]*m[3] - m[1]*m[2]))
         hw = sw / 2 * scale
