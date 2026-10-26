@@ -11,15 +11,21 @@
     <Rule>
       <MarkersSymbolizer allow-overlap="true" file="symbols/light/light.svg" fill="[colour]" transform="translate(15.5,10) rotate(120) scale(0.3)"/>
     </Rule>
-    <!--
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter>[has_sector] = 0 and [label] != ''</Filter>
-      <TextSymbolizer face-name="DejaVu Sans Book" size="9" fill="#333333"
-                      halo-fill="#ffffff" halo-radius="1.5"
-                      dx="0" dy="9" placement="point" allow-overlap="true">[label]</TextSymbolizer>
-                      </Rule>
-                      -->
+      <TextSymbolizer fontset-name="regular" size="8"
+                      dx="9" horizontal-alignment="right" allow-overlap="true"
+                      >[label]</TextSymbolizer>
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>25000</MaxScaleDenominator>
+      <Filter>[has_sector] = 1 and [label] != ''</Filter>
+      <TextSymbolizer fontset-name="regular" size="8"
+                      dx="9" horizontal-alignment="right" justify-alignment="left"
+                      allow-overlap="true"
+                      >[label]</TextSymbolizer>
+    </Rule>
   </Style>
 
   <Style name="seamark_light_marker">
@@ -30,6 +36,8 @@
     <Rule>
       <Filter>[light_type] = 'light_major'</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/light/major.svg" transform="scale(0.8)"/>
+      <TextSymbolizer fontset-name="bold" size="10" fill="#333333"
+                      allow-overlap="true" horizontal-alignment="right" dy="-10">[name]</TextSymbolizer>
     </Rule>
   </Style>
 
@@ -41,19 +49,9 @@
         (SELECT way
               , tags->'seamark:type' AS light_type
               , seamark_light_flare_colour(tags) AS colour
-              , COALESCE(seamark_light_label( COALESCE( tags->'seamark:light:1:character'
-                                                      , tags->'seamark:light:character'
-                                                      )
-                                            , COALESCE( tags->'seamark:light:1:group'
-                                                      , tags->'seamark:light:group'
-                                                      )
-                                            , COALESCE( tags->'seamark:light:1:period'
-                                                      , tags->'seamark:light:period'
-                                                      )
-                                            )
-                                            , ''
-                         ) AS label
+              , COALESCE(seamark_light_characteristics(tags), '') AS label
               , seamark_has_light_sector(tags)::int AS has_sector
+	      , tags->'seamark:name' as name		 
            FROM planet_osm_point
           WHERE seamark_has_light(tags)
        ) AS way

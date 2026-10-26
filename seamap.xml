@@ -12,6 +12,21 @@
     <Parameter name="extent">-20037508,-19929239,20037508,19929239</Parameter>
   </Datasource>
 
+  <FontSet name="regular">
+    <Font face-name="Noto Sans Regular"/>
+    <Font face-name="DejaVu Sans Book"/>
+  </FontSet>
+
+  <FontSet name="italic">
+    <Font face-name="Noto Sans Italic"/>
+    <Font face-name="DejaVu Sans Book"/>
+  </FontSet>
+
+  <FontSet name="bold">
+    <Font face-name="Noto Sans Bold"/>
+    <Font face-name="DejaVu Sans Book"/>
+  </FontSet>
+
   <xi:include href="inc/light.xml"/>
 
   <xi:include href="inc/harbour.xml"/>

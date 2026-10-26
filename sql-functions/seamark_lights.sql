@@ -175,3 +175,190 @@ BEGIN
   RETURN;
 END
 $$ LANGUAGE plpgsql IMMUTABLE;
+
+-- Format a number like Java's DecimalFormat("#.#"): at most one decimal
+-- place, no trailing ".0" (17 -> "17", 2.5 -> "2.5")
+CREATE OR REPLACE FUNCTION seamark_format_number(x float) RETURNS TEXT AS $$
+  SELECT rtrim(rtrim(round(x::numeric, 1)::text, '0'), '.');
+$$ LANGUAGE sql IMMUTABLE;
+
+-- Map a seamark:light:colour value to its chart abbreviation letter(s)
+CREATE OR REPLACE FUNCTION seamark_light_colour_letter(colour text) RETURNS TEXT AS $$
+  SELECT CASE lower(colour)
+    WHEN 'white'  THEN 'W'
+    WHEN 'red'    THEN 'R'
+    WHEN 'green'  THEN 'G'
+    WHEN 'blue'   THEN 'Bu'
+    WHEN 'yellow' THEN 'Y'
+    WHEN 'amber'  THEN 'Am'
+    WHEN 'violet' THEN 'Vi'
+    WHEN 'orange' THEN 'Or'
+    ELSE ''
+  END;
+$$ LANGUAGE sql IMMUTABLE;
+
+-- Combined characteristics label for a multi-sector light, e.g.
+-- "Iso.WGR.4s17m11-10M", following the OpenSeaMap tile renderer (JOSM
+-- SeaChart, lights() in render/Signals.java):
+--
+-- * all lights of the point (indexed ones plus an unindexed one, if any)
+--   that have a character are grouped by (directional, character, group,
+--   period, height); each group becomes one label line, groups with more
+--   members first, ties in order of first appearance
+-- * within a group every colour gets the maximum range of its sectors;
+--   colours are listed by range descending, ties in sector order
+-- * the range part shows the first (highest) colour range, followed by
+--   "/<second>" for two colours or "-<last>" for three or more
+--
+-- Only the first value of multi-valued character/colour tags is used, and
+-- "Al.*" alternating characters are reduced to their base character, as
+-- SeaChart does. Lines are separated by newlines.
+CREATE OR REPLACE FUNCTION seamark_light_sector_label(tags hstore) RETURNS TEXT AS $$
+  WITH prefixes AS (
+    SELECT DISTINCT
+           coalesce(substring(key FROM '^seamark:light:([0-9]+):')::int, 0) AS i
+      FROM skeys(tags) AS key
+     WHERE key LIKE 'seamark:light:%'
+  ), lights AS (
+    SELECT i,
+           coalesce('directional' = ANY (string_to_array(tags -> (p || 'category'), ';')),
+                    false) AS dir,
+           seamark_light_character_abbr(split_part(tags -> (p || 'character'), ';', 1)) AS chr,
+           coalesce(tags -> (p || 'group'), '') AS grp,
+           coalesce(seamark_safe_float(tags -> (p || 'period')), 0) AS per,
+           coalesce(seamark_safe_float(tags -> (p || 'range')), 0) AS rng,
+           coalesce(seamark_safe_float(tags -> (p || 'height')), 0) AS hgt,
+           split_part(tags -> (p || 'colour'), ';', 1) AS col
+      FROM (SELECT i,
+                   CASE WHEN i = 0 THEN 'seamark:light:'
+                        ELSE 'seamark:light:' || i || ':' END AS p
+              FROM prefixes) pr
+     WHERE tags ? (p || 'character')
+  ), sectors AS (
+    SELECT i, dir,
+           CASE chr
+             WHEN 'Al'     THEN 'F'
+             WHEN 'Al.Oc'  THEN 'Oc'
+             WHEN 'Al.LFl' THEN 'LFl'
+             WHEN 'Al.Fl'  THEN 'Fl'
+             WHEN 'Al.FFl' THEN 'FFl'
+             ELSE chr
+           END AS chr,
+           grp, per, rng, hgt, col
+      FROM lights
+  ), colours AS (
+    SELECT dir, chr, grp, per, hgt, col,
+           max(rng) AS rng, min(i) AS first_i, count(*) AS n
+      FROM sectors
+     GROUP BY dir, chr, grp, per, hgt, col
+  ), groups AS (
+    SELECT dir, chr, grp, per, hgt,
+           sum(n) AS n, min(first_i) AS first_i,
+           string_agg(seamark_light_colour_letter(col), '' ORDER BY rng DESC, first_i) AS letters,
+           array_agg(rng ORDER BY rng DESC, first_i) AS rngs
+      FROM colours
+     GROUP BY dir, chr, grp, per, hgt
+  )
+  SELECT string_agg(
+           CASE WHEN dir THEN 'Dir' ELSE '' END
+           || chr
+           || CASE WHEN grp <> '' THEN '(' || grp || ')' ELSE '.' END
+           || letters
+           || CASE WHEN per > 0 OR hgt > 0 OR rngs[1] > 0 THEN '.' ELSE '' END
+           || CASE WHEN per > 0 THEN seamark_format_number(per) || 's' ELSE '' END
+           || CASE WHEN hgt > 0 THEN seamark_format_number(hgt) || 'm' ELSE '' END
+           || CASE WHEN rngs[1] > 0 THEN
+                seamark_format_number(rngs[1])
+                || CASE
+                     WHEN cardinality(rngs) = 2 THEN '/' || seamark_format_number(rngs[2])
+                     WHEN cardinality(rngs) > 2 THEN '-' || seamark_format_number(rngs[cardinality(rngs)])
+                     ELSE ''
+                   END
+                || 'M'
+              ELSE '' END,
+           E'\n' ORDER BY n DESC, first_i)
+    FROM groups;
+$$ LANGUAGE sql IMMUTABLE;
+
+-- Characteristics label for a single (unindexed) light, e.g. "Fl.5s82m28M"
+-- or "Q(6)+LFl.15s", following the OpenSeaMap tile renderer (JOSM SeaChart,
+-- single light branch of lights() in render/Signals.java). The colour is
+-- left out for a plain white light.
+CREATE OR REPLACE FUNCTION seamark_light_single_label(tags hstore) RETURNS TEXT AS $$
+DECLARE
+  p    text := 'seamark:light:';
+  cats text[] := coalesce(string_to_array(tags -> 'seamark:light:category', ';'), '{}');
+  cols text[] := string_to_array(tags -> 'seamark:light:colour', ';');
+  chr  text := seamark_light_character_abbr(split_part(tags -> 'seamark:light:character', ';', 1));
+  grp  text := tags -> 'seamark:light:group';
+  col  text;
+  str  text := '';
+BEGIN
+  IF 'aero' = ANY (cats) OR 'air_obstruction' = ANY (cats) THEN
+    str := 'Aero';
+  ELSIF 'directional' = ANY (cats) THEN
+    str := 'Dir';
+  END IF;
+
+  str := str || coalesce(tags -> (p || 'multiple'), '');
+
+  IF chr IS NOT NULL THEN
+    IF grp IS NOT NULL THEN
+      str := str || CASE chr
+                      WHEN 'Q+LFl'  THEN 'Q(' || grp || ')+LFl'
+                      WHEN 'VQ+LFl' THEN 'VQ(' || grp || ')+LFl'
+                      WHEN 'UQ+LFl' THEN 'UQ(' || grp || ')+LFl'
+                      ELSE chr || '(' || grp || ')'
+                    END;
+    ELSE
+      str := str || chr;
+    END IF;
+  END IF;
+
+  IF cols IS NOT NULL AND NOT (cardinality(cols) = 1 AND lower(cols[1]) = 'white') THEN
+    IF str <> '' AND right(str, 1) <> ')' THEN
+      str := str || '.';
+    END IF;
+    FOREACH col IN ARRAY cols LOOP
+      str := str || seamark_light_colour_letter(col);
+    END LOOP;
+  END IF;
+
+  IF 'vertical' = ANY (cats) THEN str := str || '(vert)'; END IF;
+  IF 'horizontal' = ANY (cats) THEN str := str || '(hor)'; END IF;
+
+  -- SeaChart checks maximum_range here but prints range below
+  IF str <> '' AND right(str, 1) <> ')'
+     AND (tags ? (p || 'period') OR tags ? (p || 'height') OR tags ? (p || 'maximum_range')) THEN
+    str := str || '.';
+  END IF;
+
+  IF tags ? (p || 'period') THEN
+    str := str || coalesce(seamark_format_number(seamark_safe_float(tags -> (p || 'period'))), '') || 's';
+  END IF;
+  IF tags ? (p || 'height') THEN
+    str := str || coalesce(seamark_format_number(seamark_safe_float(tags -> (p || 'height'))), '') || 'm';
+  END IF;
+  IF tags ? (p || 'range') THEN
+    str := str || coalesce(seamark_format_number(seamark_safe_float(tags -> (p || 'range'))), '') || 'M';
+  END IF;
+
+  IF 'front' = ANY (cats) THEN str := str || '(Front)'; END IF;
+  IF 'rear'  = ANY (cats) THEN str := str || '(Rear)';  END IF;
+  IF 'upper' = ANY (cats) THEN str := str || '(Upper)'; END IF;
+  IF 'lower' = ANY (cats) THEN str := str || '(Lower)'; END IF;
+
+  RETURN nullif(str, '');
+END
+$$ LANGUAGE plpgsql IMMUTABLE;
+
+-- Characteristics label for any light point, choosing the format the way
+-- SeaChart does: the grouped multi-sector label as soon as indexed lights
+-- ("seamark:light:1:*") exist, the single light label otherwise.
+CREATE OR REPLACE FUNCTION seamark_light_characteristics(tags hstore) RETURNS TEXT AS $$
+  SELECT CASE
+    WHEN EXISTS (SELECT 1 FROM skeys(tags) AS key WHERE key LIKE 'seamark:light:1:%')
+      THEN seamark_light_sector_label(tags)
+    ELSE seamark_light_single_label(tags)
+  END;
+$$ LANGUAGE sql IMMUTABLE;
