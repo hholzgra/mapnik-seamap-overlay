@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
 <Include xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <!-- see also:
@@ -9,6 +13,7 @@
 
   <Style name="anchorage_point">
     <Rule>
+      &maxscale_zoom12;
       <MarkersSymbolizer allow-overlap="true" file="symbols/anchorage/anchorage.svg" multi-policy="each" width="10" height="10"  transform="rotate(180)" />
       <TextSymbolizer allow-overlap="true" fontset-name="regular" fill="magenta" text_size="8" dx="+10" multi-policy="each">[name]</TextSymbolizer>
     </Rule>
@@ -31,6 +36,7 @@
 
   <Style name="anchorage_area">
     <Rule>
+      &maxscale_zoom12;
       <MarkersSymbolizer allow-overlap="true" file="symbols/anchorage/anchorage.svg" placement="line" spacing="100" transform="scale(0.2)"/>
       <MarkersSymbolizer allow-overlap="false" file="symbols/anchorage/restricted.svg" placement="line" spacing="10" transform="scale(0.5) rotate(180)"/>
       <MarkersSymbolizer allow-overlap="true" file="symbols/anchorage/anchorage.svg" multi-policy="each" width="10" height="10"  transform="rotate(180)" />
