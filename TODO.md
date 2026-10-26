@@ -1,5 +1,7 @@
 # SeaMap Overlay TODO list
 
+Note: see also TODO: entries in actual style files
+
 ## Short term
 
 * add missing "simple" symbols, mostly thouse not requiring
