@@ -12,8 +12,6 @@
     <Parameter name="extent">-20037508,-19929239,20037508,19929239</Parameter>
   </Datasource>
 
-  <FileSource name="openseamap">./openseamap-symbols/searender/symbols</FileSource>
-
   <xi:include href="inc/light.xml"/>
 
   <xi:include href="inc/harbour.xml"/>
@@ -28,4 +26,5 @@
 
   <xi:include href="inc/beacon_special_purpose.xml"/>
 
+  <xi:include href="inc/navigation_line.xml"/>
 </Map>

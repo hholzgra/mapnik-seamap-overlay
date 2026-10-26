@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type%3Dnavigation_line
+  -->
+
+  <-- TODO: ° rendering with superscript underline, as in OpenSeaMap -->
+  <-- TODO: are orientation values always numeric degrees? -->
+
+  <Style name="navigation_line">
+    <Rule>
+      <LineSymbolizer stroke-dasharray="10,10" stroke-width="1" stroke="black"/>
+      <TextSymbolizer face-name="DejaVu Sans Book" allow-overlap="true" dy="-5" placement="line">[label]</TextSymbolizer>
+    </Rule>
+  </Style>
+
+  <Layer name="navigation_line" status="on" srs="epsg:3857">
+    <StyleName>navigation_line</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+              , CONCAT(tags->'seamark:navigation_line:orientation','°') as label
+           FROM planet_osm_line
+          WHERE tags->'seamark:type' = 'navigation_line'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
