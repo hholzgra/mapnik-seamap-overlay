@@ -13,22 +13,22 @@
 
   <Style name="wreck">
     <Rule>
-      &maxscale_zoom15;
+      &maxscale_zoom14;
       <Filter>[category]='non-dangerous' or [category]='distributed_remains'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/wreck/non_dangerous.svg" transform="scale(0.5)" />
     </Rule>
     <Rule>
-      &maxscale_zoom15;
+      &maxscale_zoom14;
       <Filter>[category]='dangerous' or [category]='mast_showing'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/wreck/dangerous.svg" transform="scale(0.5)" />
     </Rule>
     <Rule>
-      &maxscale_zoom15;
+      &maxscale_zoom14;
       <Filter>[category]='hull_showing'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/wreck/showing.svg" transform="scale(0.5)" />
     </Rule>
     <Rule>
-      &maxscale_zoom15;
+      &maxscale_zoom14;
       <ElseFilter/>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/wreck/dangerous.svg" transform="scale(0.5)" />
     </Rule>

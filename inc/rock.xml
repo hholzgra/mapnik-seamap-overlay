@@ -13,17 +13,17 @@
 
   <Style name="rock">
     <Rule>
-      &maxscale_zoom15;
+      &maxscale_zoom14;
       <Filter>[level]='awash'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/rock/awash.svg" transform="scale(0.5)" />
     </Rule>
     <Rule>
-      &maxscale_zoom15;
+      &maxscale_zoom14;
       <Filter>[level]='covers'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/rock/covers.svg" transform="scale(0.5)" />
     </Rule>
     <Rule>
-      &maxscale_zoom15;
+      &maxscale_zoom14;
       <ElseFilter/>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/rock/rock.svg" transform="scale(0.5)" />
     </Rule>
