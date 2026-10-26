@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
 <Include xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <!-- see also:
@@ -12,14 +16,14 @@
       <MarkersSymbolizer allow-overlap="true" file="symbols/light/light.svg" fill="[colour]" transform="translate(15.5,10) rotate(120) scale(0.3)"/>
     </Rule>
     <Rule>
-      <MaxScaleDenominator>100000</MaxScaleDenominator>
+      &maxscale_zoom13;
       <Filter>[has_sector] = 0 and [label] != ''</Filter>
       <TextSymbolizer fontset-name="regular" size="8"
                       dx="9" horizontal-alignment="right" allow-overlap="true"
                       >[label]</TextSymbolizer>
     </Rule>
     <Rule>
-      <MaxScaleDenominator>25000</MaxScaleDenominator>
+      &maxscale_zoom15;
       <Filter>[has_sector] = 1 and [label] != ''</Filter>
       <TextSymbolizer fontset-name="regular" size="8"
                       dx="9" horizontal-alignment="right" justify-alignment="left"
@@ -62,7 +66,7 @@
 
   <Style name="seamark_light_sector">
     <Rule>
-      <MaxScaleDenominator>100000</MaxScaleDenominator>
+      &maxscale_zoom13;
       <ArcSymbolizer radius="100" start-angle="[sector_start]" end-angle="[sector_end]"
                      stroke="[colour]" stroke-width="2" stroke-opacity="0.9"
                      radius-stroke="dimgray" radius-stroke-width="0.5"
