@@ -2,6 +2,27 @@
 <!DOCTYPE Include [
 <!ENTITY % scale_entities SYSTEM "scale_entities.ent">
 %scale_entities;
+
+<!-- sector arc radius like OpenSeaMap / JOSM SeaChart:
+     (0.5 + 2 * log10(range)) / (zoom^4 / 5000) nautical miles,
+     converted to pixels using the scale denominator (0.28mm pixels)
+     and the mercator scale factor 1/cos(lat); [scale_denominator] is
+     passed in by the layer SQL as symbolizers can't access
+     [mapnik::scale_denominator]; the "+ 0 * (...)" term is needed as Mapnik
+     doesn't look inside function calls when collecting the columns to
+     fetch from the datasource -->
+<!ENTITY sector_zoom "(log(559082264.028 / [scale_denominator]) / log(2))">
+<!ENTITY sector_radius "(0.5 + 2 * log([range]) / log(10)) * 5000 / pow(&sector_zoom;, 4)
+                        * 1852 / cos([lat] * 0.0174532925) / ([scale_denominator] * 0.00028)
+                        + 0 * ([range] + [lat])">
+
+<!ENTITY sector_arc '<ArcSymbolizer radius="&sector_radius;"
+                     start-angle="[sector_start]" end-angle="[sector_end]"
+                     stroke="[colour]" stroke-width="2" stroke-opacity="0.9"
+                     radius-stroke="dimgray" radius-stroke-width="0.5"
+                     radius-stroke-dasharray="6,4"
+                     text="[label]" text-face-name="DejaVu Sans Book" text-size="9"
+                     text-fill="#333333" text-halo-fill="#ffffff" text-halo-radius="1.5" text-offset="4"/>'>
 ]>
 <Include xmlns:xi="http://www.w3.org/2001/XInclude">
 
@@ -70,15 +91,34 @@
     </Datasource>
   </Layer>
 
+  <!-- like OpenSeaMap / JOSM SeaChart: sectors are shown from the zoom
+       level on where the light's carrier is drawn:
+       - safe water marks, light vessels, buoy installations and anything
+         with a radar transponder from zoom 11
+       - major lights, lit landmarks, light floats and lateral and cardinal
+         marks from zoom 12
+       - everything else (minor lights, other beacons and buoys ...) from
+         zoom 14 -->
   <Style name="seamark_light_sector">
     <Rule>
-      &maxscale_zoom13;
-      <ArcSymbolizer radius="100" start-angle="[sector_start]" end-angle="[sector_end]"
-                     stroke="[colour]" stroke-width="2" stroke-opacity="0.9"
-                     radius-stroke="dimgray" radius-stroke-width="0.5"
-                     radius-stroke-dasharray="6,4"
-                     text="[label]" text-face-name="DejaVu Sans Book" text-size="9"
-                     text-fill="#333333" text-halo-fill="#ffffff" text-halo-radius="1.5" text-offset="4"/>
+      &maxscale_zoom11;
+      <Filter>[light_type] = 'beacon_safe_water' or [light_type] = 'buoy_safe_water'
+              or [light_type] = 'light_vessel' or [light_type] = 'buoy_installation'
+              or [has_racon] = 1</Filter>
+      &sector_arc;
+    </Rule>
+    <Rule>
+      &maxscale_zoom12;
+      <Filter>[light_type] = 'light_major' or [light_type] = 'landmark'
+              or [light_type] = 'light_float'
+              or [light_type] = 'beacon_lateral' or [light_type] = 'beacon_cardinal'
+              or [light_type] = 'buoy_lateral' or [light_type] = 'buoy_cardinal'</Filter>
+      &sector_arc;
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <ElseFilter/>
+      &sector_arc;
     </Rule>
   </Style>
 
@@ -87,9 +127,16 @@
     <Datasource base="gis">
       <Parameter name="table">
         (SELECT p.way,
+                p.tags->'seamark:type' AS light_type,
+                EXISTS (SELECT 1 FROM skeys(p.tags) k
+                         WHERE k LIKE 'seamark:radar_transponder%')::int AS has_racon,
+                ST_Y(ST_Transform(p.way, 4326)) AS lat,
+                !scale_denominator!::float AS scale_denominator,
                 s.colour,
                 s.sector_start,
                 s.sector_end,
+                -- no range: log10(1) = 0 gives SeaChart's minimal radius
+                COALESCE(s.range, 1) AS range,
                 COALESCE(s.label, '') AS label
            FROM planet_osm_point p
           CROSS JOIN LATERAL seamark_light_sectors(p.tags) s

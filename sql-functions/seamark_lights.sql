@@ -124,9 +124,12 @@ END
 $$ LANGUAGE plpgsql IMMUTABLE;
 
 -- Unnest the (possibly indexed) light sectors of a point into one row per
--- sector, ready to be fed to the ArcSymbolizer.
-CREATE OR REPLACE FUNCTION seamark_light_sectors(tags hstore)
-RETURNS TABLE(colour text, sector_start float, sector_end float, label text) AS $$
+-- sector, ready to be fed to the ArcSymbolizer. range is the sector light's
+-- nominal range in nautical miles, NULL if not tagged.
+-- (DROP needed as CREATE OR REPLACE can't change the result columns)
+DROP FUNCTION IF EXISTS seamark_light_sectors(hstore);
+CREATE FUNCTION seamark_light_sectors(tags hstore)
+RETURNS TABLE(colour text, sector_start float, sector_end float, label text, range float) AS $$
 DECLARE
   i int;
   k_prefix text;
@@ -153,6 +156,7 @@ BEGIN
       label  := seamark_light_label(tags -> (k_prefix || 'character'),
                                      tags -> (k_prefix || 'group'),
                                      tags -> (k_prefix || 'period'));
+      range  := seamark_safe_float(tags -> (k_prefix || 'range'));
       RETURN NEXT;
     END IF;
   END LOOP;
@@ -168,6 +172,7 @@ BEGIN
       label  := seamark_light_label(tags -> 'seamark:light:character',
                                      tags -> 'seamark:light:group',
                                      tags -> 'seamark:light:period');
+      range  := seamark_safe_float(tags -> 'seamark:light:range');
       RETURN NEXT;
     END IF;
   END IF;
