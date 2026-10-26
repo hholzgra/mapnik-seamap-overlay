@@ -31,4 +31,6 @@
   <xi:include href="inc/rescue_station.xml"/>
 
   <xi:include href="inc/landmark.xml"/>
+
+  <xi:include href="inc/radio_station.xml"/>
 </Map>

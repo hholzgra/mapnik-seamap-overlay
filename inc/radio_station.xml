@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * ...
+  -->
+
+  <!-- TODO: ... -->
+
+  <Style name="radio_station">
+    <Rule>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/radio_station/station.svg" transform="scale(0.5)"/>
+      <TextSymbolizer face-name="DejaVu Sans Book" size="9" fill="black"
+                      dx="-10" dy="-10" placement="point" allow-overlap="true">[label]</TextSymbolizer>
+      <ArcSymbolizer radius="30" arc-stroke="magenta"/>
+    </Rule>
+  </Style>
+
+  <Layer name="radio_station" status="on" srs="epsg:3857">
+    <StyleName>radio_station</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+              , tags->'seamark:radio_station:category'  as category
+              , tags->'seamark:radio_station:frequency' as frequency
+              , tags->'seamark:radio_station:channel'   as channel
+              , tags->'seamark:radio_station:range'     as range
+              , tags->'seamark:radio_station:callsign'  as callsign
+              , tags->'seamark:radio_station:mmsi'      as mmsi
+              , case when tags->'seamark:radio_station:category' = 'ais'              then 'AIS'
+                     when tags->'seamark:radio_station:category' = 'omnidirectional'  then 'RC'
+                     when tags->'seamark:radio_station:category' = 'directional'      then 'RD'
+                     when tags->'seamark:radio_station:category' = 'rotating_pattern' then 'RW'
+                     when tags->'seamark:radio_station:category' = 'consol'           then 'Consol'
+                     when tags->'seamark:radio_station:category' = 'rdf'              then 'RG'
+                     when tags->'seamark:radio_station:category' = 'qtg'              then 'R'
+                     when tags->'seamark:radio_station:category' = 'aeronautical'     then 'AeroRC'
+                     when tags->'seamark:radio_station:category' = 'decca'            then 'Decca'
+                     when tags->'seamark:radio_station:category' = 'loran'            then 'Loran'
+                     when tags->'seamark:radio_station:category' = 'dgps'             then 'DGPS'
+                     when tags->'seamark:radio_station:category' = 'toran'            then 'Toran'
+                     when tags->'seamark:radio_station:category' = 'omega'            then 'Omega'
+                     when tags->'seamark:radio_station:category' = 'chiaka'           then 'Chiaka'
+                     when tags->'seamark:radio_station:category' = 'ais_base'         then 'AIS'
+                 end as label
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'radio_station'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
