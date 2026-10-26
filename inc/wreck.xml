@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
 <Include xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <!-- see also:
@@ -9,18 +13,22 @@
 
   <Style name="wreck">
     <Rule>
+      &maxscale_zoom15;
       <Filter>[category]='non-dangerous' or [category]='distributed_remains'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/wreck/non_dangerous.svg" transform="scale(0.5)" />
     </Rule>
     <Rule>
+      &maxscale_zoom15;
       <Filter>[category]='dangerous' or [category]='mast_showing'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/wreck/dangerous.svg" transform="scale(0.5)" />
     </Rule>
     <Rule>
+      &maxscale_zoom15;
       <Filter>[category]='hull_showing'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/wreck/showing.svg" transform="scale(0.5)" />
     </Rule>
     <Rule>
+      &maxscale_zoom15;
       <ElseFilter/>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/wreck/dangerous.svg" transform="scale(0.5)" />
     </Rule>
