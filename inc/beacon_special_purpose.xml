@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=beacon%20special%20purpose
+       * https://wiki.openstreetmap.org/wiki/Key:seamark:beacon_special_purpose:shape
+  -->
+
+  <!-- TODO: only "pile" shape icon exists so far -->
+
+  <Style name="beacon_special_purpose">
+    <Rule>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/beacon/pile/outer.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+  </Style>
+
+  <Layer name="beacon_special_purpose" status="on" srs="epsg:3857">
+    <StyleName>beacon_special_purpose</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+      (SELECT way
+            , tags->'seamark:beaco_special_purpose:shape'  as body_shape
+         FROM planet_osm_point
+        WHERE tags->'seamark:type' = 'beacon_special_purpose'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
+
