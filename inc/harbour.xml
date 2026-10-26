@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
 <Include xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <!-- see also:
@@ -8,18 +12,22 @@
 
   <Style name="harbour">
     <Rule>
+      &maxscale_zoom12;
       <Filter>[category] = 'fishing'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/harbour/fishing.svg" transform="scale(0.5)" />
     </Rule>
     <Rule>
+      &maxscale_zoom12;
       <Filter>[category] = 'marina'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/harbour/marina.svg" transform="scale(0.5)" />
     </Rule>
     <Rule>
+      &maxscale_zoom12;
       <Filter>[category] = 'marina_no_facilities'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/harbour/marina_no_facilities.svg" transform="scale(0.5)" />
     </Rule>
     <Rule>
+      &maxscale_zoom12;
       <ElseFilter/>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/harbour/harbour.svg" transform="scale(0.5)" />
     </Rule>
