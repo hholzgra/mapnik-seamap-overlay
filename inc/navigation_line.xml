@@ -11,7 +11,7 @@
   <Style name="navigation_line">
     <Rule>
       <LineSymbolizer stroke-dasharray="10,10" stroke-width="1" stroke="black"/>
-      <TextSymbolizer face-name="DejaVu Sans Book" allow-overlap="true" dy="-5" placement="line">[label]</TextSymbolizer>
+      <TextSymbolizer fontset-name="regular" allow-overlap="true" dy="-5" placement="line">[label]</TextSymbolizer>
     </Rule>
   </Style>
 

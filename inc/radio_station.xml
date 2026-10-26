@@ -10,7 +10,7 @@
   <Style name="radio_station">
     <Rule>
       <MarkersSymbolizer allow-overlap="true" file="symbols/radio_station/station.svg" transform="scale(0.5)"/>
-      <TextSymbolizer face-name="DejaVu Sans Book" size="9" fill="black"
+      <TextSymbolizer fontset-name="regular" size="9" fill="black"
                       dx="-10" dy="-10" placement="point" allow-overlap="true">[label]</TextSymbolizer>
       <ArcSymbolizer radius="30" arc-stroke="magenta"/>
     </Rule>
