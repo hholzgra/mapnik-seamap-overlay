@@ -38,7 +38,11 @@
       <MarkersSymbolizer allow-overlap="true" file="symbols/light/minor.svg" transform="scale(0.5)"/>
     </Rule>
     <Rule>
-      <Filter>[light_type] = 'light_major'</Filter>
+      <!-- landmarks without category and with no or light function are
+           rendered as major lights, like OpenSeaMap / JOSM SeaChart does -->
+      <Filter>[light_type] = 'light_major'
+              or ([light_type] = 'landmark' and [landmark_category] = ''
+                  and ([landmark_function] = '' or [landmark_function].match('(.*;)?light(;.*)?')))</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/light/major.svg" transform="scale(0.8)"/>
       <TextSymbolizer fontset-name="bold" size="10" fill="#333333"
                       allow-overlap="true" horizontal-alignment="right" dy="-10">[name]</TextSymbolizer>
@@ -52,6 +56,8 @@
       <Parameter name="table">
         (SELECT way
               , tags->'seamark:type' AS light_type
+              , COALESCE(tags->'seamark:landmark:category', '') AS landmark_category
+              , COALESCE(tags->'seamark:landmark:function', '') AS landmark_function
               , seamark_light_flare_colour(tags) AS colour
               , COALESCE(seamark_light_characteristics(tags), '') AS label
               , seamark_has_light_sector(tags)::int AS has_sector
