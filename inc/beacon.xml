@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=beacon
+  -->
+
+  <!-- TODO: only renders general beacon shape so far, no colors, no top markers -->
+  <!-- TODO: "withy" shapes not supported yet, default shape rendered instead -->
+
+  <Style name="beacon">
+    <Rule>
+      <Filter>[body_shape] = 'pile'</Filter>
+      <Filter>[body_shape] = 'lattice'</Filter>
+      <Filter>[body_shape] = 'buoyant'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/beacon/pile/outer.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+    <Rule>
+      <Filter>[body_shape] = 'perch'</Filter>
+      <Filter>[body_shape] = 'pole'</Filter>
+      <Filter>[body_shape] = 'post'</Filter>
+      <Filter>[body_shape] = 'stake'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/beacon/stake/stake.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+    <Rule>
+      <Filter>[body_shape] = 'tower'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/beacon/tower/tower.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+    <Rule>
+      <Filter>[body_shape] = 'cairn'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/beacon/tower/tower.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+    <Rule>
+      <ElseFilter/>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/beacon/pile/outer.svg" transform="scale(0.5) translate(0,-4.5)" />
+    </Rule>
+  </Style>
+
+  <Layer name="beacon" status="on" srs="epsg:3857">
+    <StyleName>beacon</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (
+          SELECT way
+               , tags->CONCAT('seamark:',tags->'seamark:type',':shape') as body_shape
+            FROM planet_osm_point
+           WHERE tags->'seamark:type' LIKE  'beacon%'
+         ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>

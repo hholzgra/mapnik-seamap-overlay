@@ -39,7 +39,7 @@
   <xi:include href="inc/buoy_lateral.xml"/>
   <xi:include href="inc/buoy_special_purpose.xml"/>
 
-  <xi:include href="inc/beacon_special_purpose.xml"/>
+  <xi:include href="inc/beacon.xml"/>
 
   <xi:include href="inc/navigation_line.xml"/>
 
