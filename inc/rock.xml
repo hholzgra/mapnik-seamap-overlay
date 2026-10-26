@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include xmlns:xi="http://www.w3.org/2001/XInclude">
-  
+
   <!-- see also:
        * https://wiki.openstreetmap.org/wiki/DE:Tag:seamark:type=rock
   -->
@@ -21,7 +21,7 @@
       <MarkersSymbolizer  allow-overlap="true" file="symbols/rock/rock.svg" transform="scale(0.5)" />
     </Rule>
   </Style>
-  
+
   <Layer name="rock" status="on" srs="epsg:3857">
     <StyleName>rock</StyleName>
     <Datasource base="gis">

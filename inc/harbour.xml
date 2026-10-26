@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include xmlns:xi="http://www.w3.org/2001/XInclude">
-  
+
   <!-- see also:
        * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=harbour
        * https://wiki.openstreetmap.org/wiki/Key:seamark:harbour:category
@@ -24,32 +24,32 @@
       <MarkersSymbolizer  allow-overlap="true" file="symbols/harbour/harbour.svg" transform="scale(0.5)" />
     </Rule>
   </Style>
-  
+
   <Layer name="harbour" status="on" srs="epsg:3857">
     <StyleName>harbour</StyleName>
     <Datasource base="gis">
       <Parameter name="table">
-	(SELECT way
-	      , tags->'seamark:harbour:category' AS category
+        (SELECT way
+              , tags->'seamark:harbour:category' AS category
            FROM planet_osm_point
           WHERE water = 'harbour'
-	     OR tags->'seamark:type' = 'harbour'
+             OR tags->'seamark:type' = 'harbour'
          UNION
-	 SELECT ST_MakePolygon(way) as way
-	      , tags->'seamark:harbour:category' AS category
+         SELECT ST_MakePolygon(way) as way
+              , tags->'seamark:harbour:category' AS category
            FROM planet_osm_line
           WHERE water = 'harbour'
-	     OR tags->'seamark:type' = 'harbour'
+             OR tags->'seamark:type' = 'harbour'
          UNION
-	 SELECT way
-	      , tags->'seamark:harbour:category' AS category
+         SELECT way
+              , tags->'seamark:harbour:category' AS category
            FROM planet_osm_polygon
           WHERE water = 'harbour'
-	     OR tags->'seamark:type' = 'harbour'
-	) AS way
+             OR tags->'seamark:type' = 'harbour'
+        ) AS way
       </Parameter>
       <Parameter name="geometry_field">way</Parameter>
     </Datasource>
   </Layer>
-  
+
 </Include>

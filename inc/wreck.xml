@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include xmlns:xi="http://www.w3.org/2001/XInclude">
-  
+
   <!-- see also:
        * https://wiki.openstreetmap.org/wiki/Seamarks/Wrecks
   -->
@@ -30,7 +30,7 @@
     <StyleName>wreck</StyleName>
     <Datasource base="gis">
       <Parameter name="table">
-	(SELECT way
+        (SELECT way
               , tags->'seamark:wreck:category' as category
            FROM planet_osm_point
           WHERE tags->'seamark:type' = 'wreck'

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include xmlns:xi="http://www.w3.org/2001/XInclude">
-  
+
   <!-- see also:
        * ...
   -->
@@ -13,7 +13,7 @@
       <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/sphere/outer.svg" transform="scale(0.5)" />
     </Rule>
   </Style>
-  
+
   <Layer name="buoy_special_purpose" status="on" srs="epsg:3857">
     <StyleName>buoy_special_purpose</StyleName>
     <Datasource base="gis">

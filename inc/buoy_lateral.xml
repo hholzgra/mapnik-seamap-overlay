@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include xmlns:xi="http://www.w3.org/2001/XInclude">
-  
+
   <!-- see also:
        * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=buoy%20lateral
   -->
@@ -25,13 +25,13 @@
       <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/cone/inner.svg" fill="magenta" transform="scale(0.5)" />
     </Rule>
   </Style>
-  
+
   <Style name="buoy_lateral_outer">
     <Rule>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/buoy/cone/outer.svg" transform="scale(0.5)" />
     </Rule>
   </Style>
-  
+
   <Layer name="buoy_lateral" status="on" srs="epsg:3857">
     <StyleName>buoy_lateral_inner</StyleName>
     <StyleName>buoy_lateral_outer</StyleName>
@@ -39,7 +39,7 @@
       <Parameter name="table">
       (SELECT way
             , tags->'seamark:buoy_lateral:category'  as category
-            , tags->'seamark:buoy_lateral:shape'     as shape      
+            , tags->'seamark:buoy_lateral:shape'     as shape
          FROM planet_osm_point
         WHERE tags->'seamark:type' = 'buoy_lateral'
         ) AS way
