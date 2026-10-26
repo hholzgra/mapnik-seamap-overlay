@@ -1,0 +1,17 @@
+# editor backup file patterns
+*~
+.*.swp
+\#*#
+.\#*
+
+# ignore local hidden files and directories
+/.*
+
+# include stuff that should not end up on git
+not-for-git
+
+# ignore experimental stuff
+experimental/
+
+# ignore temporary files
+*.tmp
