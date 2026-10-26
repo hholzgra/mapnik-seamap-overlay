@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:fog
+  -->
+
+  <Style name="fog_signal">
+    <Rule>
+      &maxscale_zoom14;
+      <MarkersSymbolizer allow-overlap="true" file="symbols/fog_signal/fog_signal.svg" transform="translate(-14,14)" />
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[type] = 'fog_signal'</Filter>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/fog_signal/circle.svg" transform="scale(0.5)" />
+    </Rule>
+    <Rule>
+      &maxscale_zoom15;
+      <TextSymbolizer fontset-name="regular" size="8"
+                      dx="-9" horizontal-alignment="left" allow-overlap="true"
+                      >[label]</TextSymbolizer>
+    </Rule>
+  </Style>
+
+  <Layer name="fog_signal" status="on" srs="epsg:3857">
+    <StyleName>fog_signal</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+              , tags->'seamark:type'                  AS type
+              , tags->'seamark:fog_signal:category'   AS category
+              , tags->'seamark:fog_signal:generation' AS generation
+              , tags->'seamark:fog_signal:group'      AS group
+              , tags->'seamark:fog_signal:period'     AS period
+              , CONCAT(INITCAP(tags->'seamark:fog_signal:category')
+                      ,CASE WHEN tags->'seamark:fog_signal:group' IS NOT NULL
+                            THEN CONCAT('('
+                                       ,tags->'seamark:fog_signal:group'
+                                       ,')'
+                                       , CASE WHEN tags->'seamark:fog_signal:period' IS NOT NULL
+                                              THEN CONCAT(tags->'seamark:fog_signal:period','s')
+                                         END
+                                       )
+                       END
+                       ) AS label
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'fog_signal'
+             OR tags->'seamark:fog_signal:category' IS NOT NULL
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>

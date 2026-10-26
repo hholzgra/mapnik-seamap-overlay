@@ -48,4 +48,6 @@
   <xi:include href="inc/landmark.xml"/>
 
   <xi:include href="inc/radio_station.xml"/>
+
+  <xi:include href="inc/fog_horn.xml"/>
 </Map>

@@ -28,6 +28,7 @@ plus a few selected other symbols:
 * radio stations
 * rescue stations
 * landmarks
+* fog horns
 * some first buoys and beacons: lateral and special purpose
 
 ## Requirements
