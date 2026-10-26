@@ -29,4 +29,6 @@
   <xi:include href="inc/navigation_line.xml"/>
 
   <xi:include href="inc/rescue_station.xml"/>
+
+  <xi:include href="inc/landmark.xml"/>
 </Map>

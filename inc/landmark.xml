@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=landmark
+       * https://wiki.openstreetmap.org/wiki/Key:seamark:landmark:category
+       * https://wiki.openstreetmap.org/wiki/Key:seamark:landmark:function
+  -->
+
+  <!-- TODO: Everything but mast is missing -->
+
+  <Style name="landmark">
+    <Rule>
+      <Filter>[category]='mast'</Filter>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/mast.svg" transform="scale(4) translate(0,-8)"/>
+    </Rule>
+  </Style>
+
+  <Layer name="landmark" status="on" srs="epsg:3857">
+    <StyleName>landmark</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+              , tags->'seamark:landmark:category' as category
+              , tags->'seamark:landmark:function' as function
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'landmark'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
