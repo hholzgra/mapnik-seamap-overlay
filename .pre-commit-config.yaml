@@ -1,0 +1,34 @@
+# pre-commit hooks for the Mapnik XML style and entity files
+#
+# install with:   pre-commit install
+# run manually:   pre-commit run --all-files
+#
+# SVG symbol files are not checked, they are edited with Inkscape etc.,
+# not by hand
+
+repos:
+  - repo: local
+    hooks:
+      - id: xmllint
+        name: xmllint
+        # --loaddtd so that the external scale_entities.ent gets loaded
+        entry: xmllint --noout --loaddtd
+        language: system
+        files: \.xml$
+        # don't reindent files that are not well-formed
+        fail_fast: true
+
+      - id: xmllint-xinclude
+        name: xmllint seamap.xml with XIncludes resolved
+        entry: xmllint --noout --loaddtd --xinclude seamap.xml
+        language: system
+        files: \.(xml|ent)$
+        pass_filenames: false
+        fail_fast: true
+
+      - id: xml-reindent
+        name: XML indentation and whitespace
+        # 2 space indent per nesting level, no tabs, no trailing whitespace
+        entry: tools/xml-reindent.py
+        language: system
+        files: \.(xml|ent)$
