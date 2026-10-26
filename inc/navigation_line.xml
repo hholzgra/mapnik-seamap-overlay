@@ -5,8 +5,8 @@
        * https://wiki.openstreetmap.org/wiki/Tag:seamark:type%3Dnavigation_line
   -->
 
-  <-- TODO: ° rendering with superscript underline, as in OpenSeaMap -->
-  <-- TODO: are orientation values always numeric degrees? -->
+  <!-- TODO: ° rendering with superscript underline, as in OpenSeaMap -->
+  <!-- TODO: are orientation values always numeric degrees? -->
 
   <Style name="navigation_line">
     <Rule>
