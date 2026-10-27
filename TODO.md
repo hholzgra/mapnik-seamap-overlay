@@ -7,6 +7,7 @@ Note: see also TODO: entries in actual style files
 * add missing "simple" symbols
 * finish zoom level restrictions
 * improve feature scaling
+* have different zoom/scaling settings for screen tiles and print
 * ...
 
 ## Medium term
