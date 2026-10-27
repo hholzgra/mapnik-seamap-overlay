@@ -6,13 +6,13 @@ Note: see also TODO: entries in actual style files
 
 * add missing "simple" symbols
 * finish zoom level restrictions
-* improve feature scaling
-* have different zoom/scaling settings for screen tiles and print
+* add coordinate grid
 * ...
 
 ## Medium term
 
 * take care of beacon and buoy coloring and top markers
+* have different zoom/scaling settings for screen tiles and print
 * ...
 
 ## Long term
