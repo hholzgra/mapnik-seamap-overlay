@@ -22,6 +22,8 @@
   <!-- TODO: orientation
        see https://wiki.openstreetmap.org/wiki/Key:seamark:notice:orientation -->
 
+  <!-- TODO: regulation speed_limit and make_radio_contact still missing -->
+
   <Style name="notice">
     <Rule>
       &maxscale_zoom14;
@@ -140,8 +142,63 @@
     </Rule>
     <Rule>
       &maxscale_zoom14;
-      <Filter>[category] = 'no_waterbikes'</Filter>
-      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_waterbikes.svg"/>
+      <Filter>[category] = 'move_to_left'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/regulation/move_to_left.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'move_to_right'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/regulation/move_to_right.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'move_to_port'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/regulation/move_to_port.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'keep_to_port'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/regulation/keep_to_port.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'keep_to_starboard'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/regulation/keep_to_starboard.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'cross_to_starboard'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/regulation/cross_to_starboard.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'cross_to_port'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/regulation/cross_to_port.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'stop'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/regulation/stop.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'sound_horn'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/regulation/sound_horn.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'keep_lockout'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/regulation/keep_lockout.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'give_way_junction'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/regulation/give_way_junction.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'give_way_crossing'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/regulation/give_way_crossing.svg"/>
     </Rule>
   </Style>
 
