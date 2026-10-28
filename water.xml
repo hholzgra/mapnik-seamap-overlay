@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Map srs="epsg:3857">
-
-<Style name="water">
-  <Rule>
-    <PolygonSymbolizer fill="#efefff"/>
-  </Rule>
-</Style>
+  <Style name="water">
+    <Rule>
+      <PolygonSymbolizer fill="#efefff"/>
+    </Rule>
+  </Style>
 
   <Layer name="water">
     <StyleName>water</StyleName>
@@ -15,4 +14,3 @@
     </Datasource>
   </Layer>
 </Map>
-
