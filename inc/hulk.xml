@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=hulk
+  -->
+
+  <Style name="hulk">
+    <Rule>
+      &maxscale_zoom13;
+      <PolygonSymbolizer allow-overlap="true" fill="yellow"/>
+      <LineSymbolizer alloww-overlap="true" stroke="black" stroke-width="3"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[label] != ''</Filter>
+      <TextSymbolizer allow-overlap="true" fontset-name="bold" text-size="14" orientation="[label_direction]">[label]</TextSymbolizer>
+    </Rule>
+  </Style>
+
+  <Layer name="hulk" status="on" srs="epsg:3857">
+    <StyleName>hulk</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (
+         SELECT ST_MakePolygon(way) AS way
+              , tags->'seamark:name' AS label
+              , label_angle(ST_MakePolygon(way)) AS label_direction
+           FROM planet_osm_line
+          WHERE tags->'seamark:type' = 'hulk'
+        UNION
+         SELECT way
+              , tags->'seamark:name' AS label
+              , label_angle(way) AS label_direction
+           FROM planet_osm_polygon
+          WHERE tags->'seamark:type' = 'hulk'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
