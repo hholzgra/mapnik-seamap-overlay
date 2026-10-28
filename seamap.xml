@@ -49,4 +49,6 @@
   <xi:include href="inc/radio_station.xml"/>
 
   <xi:include href="inc/fog_horn.xml"/>
+
+  <xi:include href="inc/mooring.xml"/>
 </Map>
