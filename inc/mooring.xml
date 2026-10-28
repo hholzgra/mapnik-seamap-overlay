@@ -13,27 +13,27 @@
 
   <Style name="mooring">
     <Rule>
-      &maxscale-zoom14;
+      &maxscale_zoom14;
       <Filter>[category]="dolphin"</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/mooring/dolphin.svg" transform="scale(0.2)" />
     </Rule>
     <Rule>
-      &maxscale-zoom14;
+      &maxscale_zoom14;
       <Filter>[category]="deviated_dolphin"</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/mooring/deviated_dolphin.svg" transform="scale(0.4)" />
     </Rule>
     <Rule>
-      &maxscale-zoom14;
+      &maxscale_zoom14;
       <Filter>[category]="buoy"</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/mooring/mooring.svg" transform="scale(0.4)" />
     </Rule>
     <Rule>
-      &maxscale-zoom14;
+      &maxscale_zoom14;
       <Filter>[category]="pile"</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/mooring/pile.svg" transform="scale(0.2)" />
     </Rule>
     <Rule>
-      &maxscale-zoom14;
+      &maxscale_zoom14;
       <Filter>[category]="post"</Filter>
       <Filter>[category]="bollard"</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/mooring/post.svg" transform="scale(0.2)" />
