@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=notice
+       * https://wiki.openstreetmap.org/wiki/Key:seamark:notice:function
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:notice:function=prohibition
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:notice:function=restriction
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:notice:function%3Dregulation
+  -->
+
+  <!-- TODO: addition handling,
+       see https://wiki.openstreetmap.org/wiki/Key:seamark:notice:addition -->
+
+  <!-- TODO: several signs in same position
+       see https://wiki.openstreetmap.org/wiki/Key:seamark:notice:category?uselang=de#Several_signs_in_the_same_position -->
+
+  <!-- TODO: orientation
+       see https://wiki.openstreetmap.org/wiki/Key:seamark:notice:orientation -->
+
+  <Style name="notice">
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_wash'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_wash.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_entry'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_entry.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'closed_area'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/closed_area.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_passage_left'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_passage_left.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_passage_right'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_passage_right.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_anchoring'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_anchoring.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_berthing'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_berthing.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_passing'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_passing.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_convoy_passing'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_convoy_passing.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_overtaking'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_overtaking.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_convoy_overtaking'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_convoy_overtaking.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_mooring'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_mooring.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_passage_left'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_passage_left.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_passage_right'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_passage_right.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_turning'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_turning.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_motor_craft'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_motor_craft.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_sport_craft'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_sport_craft.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_waterskiing'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_waterskiing.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_sailing_craft'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_sailing_craft.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_unpowered_craft'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_unpowered_craft.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_sailboards'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_sailboards.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_high_speeds'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_high_speeds.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_launching_beaching'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_launching_beaching.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'no_waterbikes'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_waterbikes.svg"/>
+    </Rule>
+  </Style>
+
+  <Layer name="notice" status="on" srs="epsg:3857">
+    <StyleName>notice</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+              , tags->'seamark:notice:category' AS category
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'notice'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>

@@ -53,4 +53,6 @@
   <xi:include href="inc/mooring.xml"/>
 
   <xi:include href="inc/hulk.xml"/>
+
+  <xi:include href="inc/notice.xml"/>
 </Map>
