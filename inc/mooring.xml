@@ -11,7 +11,7 @@
 
   <!-- TODO: ... -->
 
-  <Style name="...">
+  <Style name="mooring">
     <Rule>
       &maxscale-zoom14;
       <Filter>[category]="dolphin"</Filter>
@@ -40,8 +40,8 @@
     </Rule>
   </Style>
 
-  <Layer name="..." status="on" srs="epsg:3857">
-    <StyleName>...</StyleName>
+  <Layer name="mooring" status="on" srs="epsg:3857">
+    <StyleName>mooring</StyleName>
     <Datasource base="gis">
       <Parameter name="table">
         (SELECT way
