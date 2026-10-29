@@ -8,9 +8,6 @@
   <!-- see also:
        * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=notice
        * https://wiki.openstreetmap.org/wiki/Key:seamark:notice:function
-       * https://wiki.openstreetmap.org/wiki/Tag:seamark:notice:function=prohibition
-       * https://wiki.openstreetmap.org/wiki/Tag:seamark:notice:function=restriction
-       * https://wiki.openstreetmap.org/wiki/Tag:seamark:notice:function%3Dregulation
   -->
 
   <!-- TODO: addition handling,
@@ -22,7 +19,10 @@
   <!-- TODO: orientation
        see https://wiki.openstreetmap.org/wiki/Key:seamark:notice:orientation -->
 
-  <!-- TODO: regulation speed_limit and make_radio_contact still missing -->
+  <!-- TODO: restriction signs still missing
+       see https://wiki.openstreetmap.org/wiki/Tag:seamark:notice:function%3Drestriction -->
+
+  <!-- TODO: signs with variable text still missing -->
 
   <Style name="notice">
     <Rule>
@@ -199,6 +199,291 @@
       &maxscale_zoom14;
       <Filter>[category] = 'give_way_crossing'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/regulation/give_way_crossing.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'anchoring_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/anchoring_permitted.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berthing_marked_1'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berthing_marked_1.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berthing_marked_2'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berthing_marked_2.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berthing_marked_3'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berthing_marked_3.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berthing_marked_non_pushing_1'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berthing_marked_non_pushing_1.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berthing_marked_non_pushing_2'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berthing_marked_non_pushing_2.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berthing_marked_non_pushing_3'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berthing_marked_non_pushing_3.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berthing_marked_pushing_1'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berthing_marked_pushing_1.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berthing_marked_pushing_2'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berthing_marked_pushing_2.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berthing_marked_pushing_3'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berthing_marked_pushing_3.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berthing_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berthing_permitted.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berthing_unmarked_non_pushing'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berthing_unmarked_non_pushing.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berthing_unmarked_pushing'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berthing_unmarked_pushing.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berthing_unmarked'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berthing_unmarked.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'berth_rafting_limit'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/berth_rafting_limit.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'drinking_water'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/drinking_water.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'entry_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/entry_permitted.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'ferry_independent'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/ferry_independent.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'ferry_non_independent'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/ferry_non_independent.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'high_speeds_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/high_speeds_permitted.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'information'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/information.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'launching_beaching_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/launching_beaching_permitted.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'main_waterway_ahead_left_secondary_right'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/main_waterway_ahead_left_secondary_right.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'main_waterway_ahead_left'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/main_waterway_ahead_left.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'main_waterway_ahead_right_secondary_left'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/main_waterway_ahead_right_secondary_left.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'main_waterway_ahead_right'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/main_waterway_ahead_right.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'main_waterway_crossing'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/main_waterway_crossing.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'main_waterway_junction'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/main_waterway_junction.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'main_waterway_left_secondary_ahead_right'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/main_waterway_left_secondary_ahead_right.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'main_waterway_left_secondary_ahead'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/main_waterway_left_secondary_ahead.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'main_waterway_left_secondary_right'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/main_waterway_left_secondary_right.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'main_waterway_right_secondary_ahead_left'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/main_waterway_right_secondary_ahead_left.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'main_waterway_right_secondary_ahead'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/main_waterway_right_secondary_ahead.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'main_waterway_right_secondary_left'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/main_waterway_right_secondary_left.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'mooring_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/mooring_permitted.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'motor_craft_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/motor_craft_permitted.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'overhead_cable'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/overhead_cable.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'prohibition_ends'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/prohibition_ends.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'sailboards_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/sailboards_permitted.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'sailing_craft_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/sailing_craft_permitted.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'secondary_waterway_crossing'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/secondary_waterway_crossing.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'secondary_waterway_left'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/secondary_waterway_left.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'secondary_waterway_right'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/secondary_waterway_right.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'sport_craft_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/sport_craft_permitted.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'telephone'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/telephone.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'turn_area'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/turn_area.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'unpowered_craft_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/unpowered_craft_permitted.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'vehilce_loading_berth'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/vehilce_loading_berth.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'waterbike_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/waterbike_permitted.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'waterskiing_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/waterskiing_permitted.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'weir'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/weir.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'channel_one_way'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/recommendation/channel_one_way.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'channel_two_way'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/recommendation/channel_two_way.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'opening_to_left'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/recommendation/opening_to_left.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'opening_to_right'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/recommendation/opening_to_right.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'proceed_to_left'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/recommendation/proceed_to_left.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'proceed_to_right'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/recommendation/proceed_to_right.svg"/>
     </Rule>
   </Style>
 
