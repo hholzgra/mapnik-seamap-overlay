@@ -442,8 +442,8 @@
     </Rule>
     <Rule>
       &maxscale_zoom14;
-      <Filter>[category] = 'waterbike_permitted'</Filter>
-      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/waterbike_permitted.svg"/>
+      <Filter>[category] = 'waterbikes_permitted'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/waterbikeis_permitted.svg"/>
     </Rule>
     <Rule>
       &maxscale_zoom14;
