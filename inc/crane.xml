@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type%3Dcrane
+  -->
+
+  <Style name="crane">
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'container'</Filter>
+      <MarkersSymbolizer file='symbols/crane/container_crane.svg' transform='scale(0.5)'/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <ElseFilter/>
+      <MarkersSymbolizer file='symbols/crane/crane.svg' transform='scale(0.5)'/>
+    </Rule>
+  </Style>
+
+  <Layer name="crane" status="on" srs="epsg:3857">
+    <StyleName>crane</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+              , tags->'seamark:crane:category' as category
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'crane'
+       UNION
+         SELECT way
+              , tags->'seamark:crane:category' as category
+           FROM planet_osm_line
+          WHERE tags->'seamark:type' = 'crane'
+       UNION
+         SELECT way
+              , tags->'seamark:crane:category' as category
+           FROM planet_osm_polygon
+          WHERE tags->'seamark:type' = 'crane'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
