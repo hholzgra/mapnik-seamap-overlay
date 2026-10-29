@@ -57,4 +57,6 @@
   <xi:include href="inc/notice.xml"/>
 
   <xi:include href="inc/waterway_gauge.xml"/>
+
+  <xi:include href="inc/bridge.xml"/>
 </Map>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type%3Dbridge
+  -->
+
+  <!-- TODO: width -->
+  <!-- TODO: width and height combined-->
+  <!-- TODO: open/closed width -->
+
+  <Style name="bridge">
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[height] != ''</Filter>
+      <ShieldSymbolizer file="symbols/bridge/clearance_height.svg" fontset-name="regular">[height]</ShieldSymbolizer>
+    </Rule>
+  </Style>
+
+  <Layer name="bridge" status="on" srs="epsg:3857">
+    <StyleName>bridge</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+              , tags->'seamark:bridge:clearance_width' as width
+              , tags->'seamark:bridge:clearance_height' as height
+              , tags->'seamark:bridge:clearance_open' as open
+              , tags->'seamark:bridge:clearance_closed' as closed
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'bridge'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
