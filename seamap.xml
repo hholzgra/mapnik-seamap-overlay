@@ -55,4 +55,6 @@
   <xi:include href="inc/hulk.xml"/>
 
   <xi:include href="inc/notice.xml"/>
+
+  <xi:include href="inc/waterway_gauge.xml"/>
 </Map>

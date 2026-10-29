@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type%3Dwaterway_gauge
+  -->
+
+  <Style name="waterway_gauge">
+    <Rule>
+      &maxscale_zoom14;
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/waterway_gauge/waterway_gauge.svg"/>
+    </Rule>
+  </Style>
+
+  <Layer name="..." status="on" srs="epsg:3857">
+    <StyleName>...</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'waterway_gauge'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
