@@ -13,8 +13,18 @@
   <Style name="small_craft_facility">
     <Rule>
       &maxscale_zoom14;
-      <Filter>[category] = 'toilets'</Filter>
-      <MarkersSymbolizer file='symbols/small_craft_facility/toilets.svg' transform='scale(0.5)'/>
+      <Filter>[category] = 'visitor_berth'</Filter>
+      <MarkersSymbolizer file='symbols/small_craft_facility/visitor_berth.svg' transform='scale(0.5)'/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'nautical_club'</Filter>
+      <MarkersSymbolizer file='symbols/small_craft_facility/nautical_club.svg' transform='scale(0.5)'/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'boat_hoist'</Filter>
+      <MarkersSymbolizer file='symbols/small_craft_facility/boat_hoist.svg' transform='scale(0.5)'/>
     </Rule>
     <Rule>
       &maxscale_zoom14;
@@ -23,8 +33,43 @@
     </Rule>
     <Rule>
       &maxscale_zoom14;
+      <Filter>[category] = 'chandler'</Filter>
+      <MarkersSymbolizer file='symbols/small_craft_facility/chandler.svg' transform='scale(0.5)'/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
       <Filter>[category] = 'fuel_station'</Filter>
       <MarkersSymbolizer file='symbols/small_craft_facility/fuel_station.svg' transform='scale(0.5)'/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'showers'</Filter>
+      <MarkersSymbolizer file='symbols/small_craft_facility/showers.svg' transform='scale(0.5)'/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'launderette'</Filter>
+      <MarkersSymbolizer file='symbols/small_craft_facility/launderette.svg' transform='scale(0.5)'/>
+      <Rule>
+        &maxscale_zoom14;
+        <Filter>[category] = 'toilets'</Filter>
+        <MarkersSymbolizer file='symbols/small_craft_facility/toilets.svg' transform='scale(0.5)'/>
+      </Rule>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'pump_out'</Filter>
+      <MarkersSymbolizer file='symbols/small_craft_facility/pump_out.svg' transform='scale(0.5)'/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'slipway'</Filter>
+      <MarkersSymbolizer file='symbols/small_craft_facility/slipway.svg' transform='scale(0.5)'/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'visitor_mooring'</Filter>
+      <MarkersSymbolizer file='symbols/small_craft_facility/visitor_mooring.svg' transform='scale(0.5)'/>
     </Rule>
   </Style>
 
