@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="66.666667"
+   height="66.666667"
+   id="svg2"
+   sodipodi:docname="seaplane.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="namedview2"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="11.355"
+     inkscape:cx="33.333332"
+     inkscape:cy="33.333332"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <g
+     id="g2"
+     transform="matrix(1.8673401,0,0,1.8673401,-28.668907,-29.634089)">
+    <path
+       d="m 26.66664,39.99996 h 19.99998 l 3.33333,-3.33333 z"
+       style="fill:#a30075;stroke:none;stroke-width:0.333333"
+       id="path1" />
+    <path
+       d="m 16.66665,38.333295 29.99997,-3.33333 a 3.7499962,2.4999975 0 0 0 0,-4.999995 6.66666,6.66666 0 0 1 -3.33333,-1.666665 l -19.99998,5.666661 a 8.333325,8.333325 0 0 0 -4.999995,-5.666661 8.333325,8.333325 0 0 0 -1.666665,9.99999 z"
+       style="fill:#a30075;stroke:none;stroke-width:0.333333"
+       id="path2" />
+    <line
+       x1="39.999962"
+       y1="34.999966"
+       x2="41.666626"
+       y2="38.333294"
+       style="fill:none;stroke:#a30075;stroke-width:1.66666"
+       id="line2" />
+  </g>
+</svg>

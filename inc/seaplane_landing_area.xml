@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Seamarks/Anchorages
+  -->
+
+  <Style name="seaplane_landing_point">
+    <Rule>
+      &maxscale_zoom12;
+      <MarkersSymbolizer allow-overlap="true" file="symbols/seaplane_landing_area/seaplane.svg" multi-policy="each" width="10" height="10"  transform="rotate(180)" />
+      <TextSymbolizer allow-overlap="true" fontset-name="regular" fill="magenta" text_size="8" dx="+10" multi-policy="each">[name]</TextSymbolizer>
+    </Rule>
+  </Style>
+
+  <Layer name="seaplane_landing_point" status="on" srs="epsg:3857">
+    <StyleName>anchorage_point</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (
+         SELECT way
+              , tags->'seamark:name'  as name
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'seaplane_landing_area'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+  <Style name="seaplane_landing_area">
+    <Rule>
+      &maxscale_zoom12;
+      <MarkersSymbolizer allow-overlap="true" file="symbols/seaplane_landing_area/seaplane.svg" placement="line" spacing="100" transform="scale(0.2)"/>
+      <MarkersSymbolizer allow-overlap="false" file="symbols/seaplane_landing_area/restricted.svg" placement="line" spacing="10" transform="scale(0.5) rotate(180)"/>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/seaplane_landing_area/seaplane_landing_area.svg" multi-policy="each" width="10" height="10"  transform="rotate(180)" />
+      <TextSymbolizer allow-overlap="true" fontset-name="regular" fill="magenta" text_size="8" dx="+10" multi-policy="each">[name]</TextSymbolizer>
+    </Rule>
+  </Style>
+
+  <Layer name="seaplane_landing_area" status="on" srs="epsg:3857">
+    <StyleName>seaplane_landing_area</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT ST_MakePolygon(way) as way
+              , tags->'seamark:name'  as name
+           FROM planet_osm_line
+          WHERE tags->'seamark:type' = 'seaplane_landing_area'
+         UNION
+         SELECT way
+              , tags->'seamark:name'  as name
+           FROM planet_osm_polygon
+          WHERE tags->'seamark:type' = 'seaplane_landing_area'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
