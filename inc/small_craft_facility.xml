@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+    * https://wiki.openstreetmap.org/wiki/Tag:seamark:type%3Dsmall_craft_facility
+    * https://wiki.openstreetmap.org/wiki/Key:seamark:small_craft_facility:category
+  -->
+
+  <Style name="small_craft_facility">
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'toilets'</Filter>
+      <MarkersSymbolizer file='symbols/small_craft_facility/toilets.svg' transform='scale(0.5)'/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'boatyard'</Filter>
+      <MarkersSymbolizer file='symbols/small_craft_facility/boatyard.svg' transform='scale(0.5)'/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category] = 'fuel_station'</Filter>
+      <MarkersSymbolizer file='symbols/small_craft_facility/fuel_station.svg' transform='scale(0.5)'/>
+    </Rule>
+  </Style>
+
+  <Layer name="small_craft_facility" status="on" srs="epsg:3857">
+    <StyleName>small_craft_facility</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+              , tags->'seamark:small_craft_facility:category' as category
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'small_craft_facility'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>

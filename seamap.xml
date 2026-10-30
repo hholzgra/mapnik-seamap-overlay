@@ -61,4 +61,6 @@
   <xi:include href="inc/bridge.xml"/>
 
   <xi:include href="inc/crane.xml"/>
+
+  <xi:include href="inc/small_craft_facility.xml"/>
 </Map>
