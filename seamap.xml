@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Map srs="epsg:3857" xmlns:xi="http://www.w3.org/2001/XInclude">
-
+<Map minimum-version="4.3.2" srs="epsg:3857" xmlns:xi="http://www.w3.org/2001/XInclude">
+<!-- TODO: change minimum version to 4.3.3 once released -->
   <Datasource name="gis">
     <Parameter name="type">postgis</Parameter>
     <Parameter name="host">gis-db</Parameter>
