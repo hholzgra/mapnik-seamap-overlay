@@ -46,8 +46,10 @@
          SELECT ST_MakePolygon(way) as way
               , tags->'seamark:harbour:category' AS category
            FROM planet_osm_line
-          WHERE water = 'harbour'
-             OR tags->'seamark:type' = 'harbour'
+          WHERE ST_IsClosed(way)
+            AND (    water = 'harbour'
+                  OR tags->'seamark:type' = 'harbour'
+                )
          UNION
          SELECT way
               , tags->'seamark:harbour:category' AS category

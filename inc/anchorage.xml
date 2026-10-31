@@ -52,6 +52,7 @@
               , tags->'seamark:name'  as name
            FROM planet_osm_line
           WHERE tags->'seamark:type' = 'anchorage'
+            AND ST_IsClosed(way)
          UNION
          SELECT way
               , tags->'seamark:name'  as name

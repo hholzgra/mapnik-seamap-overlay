@@ -27,6 +27,7 @@
           FROM planet_osm_line
          WHERE tags->'seamark:type' IN ('restricted_area', 'dumping_ground')
            AND (boundary is null or boundary != 'protected_area')
+           AND ST_IsClosed(way)
          UNION
         SELECT way
              , COALESCE(tags->'seamark:restricted_area:category','none') as category

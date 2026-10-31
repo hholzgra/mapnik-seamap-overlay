@@ -32,6 +32,7 @@
               , label_angle(ST_MakePolygon(way)) AS label_direction
            FROM planet_osm_line
           WHERE tags->'seamark:type' = 'hulk'
+            AND ST_IsClosed(way)
         UNION
          SELECT way
               , tags->'seamark:name' AS label

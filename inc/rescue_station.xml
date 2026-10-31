@@ -28,6 +28,7 @@
          SELECT ST_MakePolygon(way)
            FROM planet_osm_line
           WHERE tags->'seamark:type' = 'rescue_station'
+            AND ST_IsClosed(way)
          UNION
          SELECT way
            FROM planet_osm_polygon
