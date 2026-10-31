@@ -58,8 +58,8 @@
     </Rule>
     <Rule>
       &maxscale_zoom14;
-      <Filter>[category] = 'pump_out'</Filter>
-      <MarkersSymbolizer file='symbols/small_craft_facility/pump_out.svg' transform='scale(0.5)'/>
+      <Filter>[category] = 'pump-out'</Filter>
+      <MarkersSymbolizer file='symbols/small_craft_facility/pump-out.svg' transform='scale(0.5)'/>
     </Rule>
     <Rule>
       &maxscale_zoom14;
