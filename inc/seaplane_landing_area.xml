@@ -18,7 +18,7 @@
   </Style>
 
   <Layer name="seaplane_landing_point" status="on" srs="epsg:3857">
-    <StyleName>anchorage_point</StyleName>
+    <StyleName>seaplane_landing_point</StyleName>
     <Datasource base="gis">
       <Parameter name="table">
         (
@@ -37,7 +37,7 @@
       &maxscale_zoom12;
       <MarkersSymbolizer allow-overlap="true" file="symbols/seaplane_landing_area/seaplane.svg" placement="line" spacing="100" transform="scale(0.2)"/>
       <MarkersSymbolizer allow-overlap="false" file="symbols/seaplane_landing_area/restricted.svg" placement="line" spacing="10" transform="scale(0.5) rotate(180)"/>
-      <MarkersSymbolizer allow-overlap="true" file="symbols/seaplane_landing_area/seaplane_landing_area.svg" multi-policy="each" width="10" height="10"  transform="rotate(180)" />
+      <MarkersSymbolizer allow-overlap="true" file="symbols/seaplane_landing_area/seaplane.svg" multi-policy="each" width="10" height="10"  transform="rotate(180)" />
       <TextSymbolizer allow-overlap="true" fontset-name="regular" fill="magenta" text_size="8" dx="+10" multi-policy="each">[name]</TextSymbolizer>
     </Rule>
   </Style>
