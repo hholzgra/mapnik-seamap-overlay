@@ -16,8 +16,8 @@
     </Rule>
   </Style>
 
-  <Layer name="..." status="on" srs="epsg:3857">
-    <StyleName>...</StyleName>
+  <Layer name="waterway_gauge" status="on" srs="epsg:3857">
+    <StyleName>waterway_gauge</StyleName>
     <Datasource base="gis">
       <Parameter name="table">
         (SELECT way

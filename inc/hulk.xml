@@ -12,13 +12,13 @@
   <Style name="hulk">
     <Rule>
       &maxscale_zoom13;
-      <PolygonSymbolizer allow-overlap="true" fill="yellow"/>
-      <LineSymbolizer alloww-overlap="true" stroke="black" stroke-width="3"/>
+      <PolygonSymbolizer fill="yellow"/>
+      <LineSymbolizer stroke="black" stroke-width="3"/>
     </Rule>
     <Rule>
       &maxscale_zoom14;
       <Filter>[label] != ''</Filter>
-      <TextSymbolizer allow-overlap="true" fontset-name="bold" text-size="14" orientation="[label_direction]">[label]</TextSymbolizer>
+      <TextSymbolizer allow-overlap="true" fontset-name="bold" size="14" orientation="[label_direction]">[label]</TextSymbolizer>
     </Rule>
   </Style>
 
