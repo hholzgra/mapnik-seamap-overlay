@@ -427,8 +427,8 @@
     </Rule>
     <Rule>
       &maxscale_zoom14;
-      <Filter>[category] = 'vehilce_loading_berth'</Filter>
-      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/vehilce_loading_berth.svg"/>
+      <Filter>[category] = 'vehicle_loading_berth'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/vehicle_loading_berth.svg"/>
     </Rule>
     <Rule>
       &maxscale_zoom14;
