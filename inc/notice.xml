@@ -87,16 +87,6 @@
     </Rule>
     <Rule>
       &maxscale_zoom14;
-      <Filter>[category] = 'no_passage_left'</Filter>
-      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_passage_left.svg"/>
-    </Rule>
-    <Rule>
-      &maxscale_zoom14;
-      <Filter>[category] = 'no_passage_right'</Filter>
-      <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_passage_right.svg"/>
-    </Rule>
-    <Rule>
-      &maxscale_zoom14;
       <Filter>[category] = 'no_turning'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/prohibition/no_turning.svg"/>
     </Rule>
