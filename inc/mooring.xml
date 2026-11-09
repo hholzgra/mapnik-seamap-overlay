@@ -34,8 +34,7 @@
     </Rule>
     <Rule>
       &maxscale_zoom14;
-      <Filter>[category]="post"</Filter>
-      <Filter>[category]="bollard"</Filter>
+      <Filter>[category]="post" or [category]="bollard"</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/mooring/post.svg" transform="scale(0.2)" />
     </Rule>
   </Style>

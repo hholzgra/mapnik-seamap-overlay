@@ -10,16 +10,11 @@
 
   <Style name="beacon">
     <Rule>
-      <Filter>[body_shape] = 'pile'</Filter>
-      <Filter>[body_shape] = 'lattice'</Filter>
-      <Filter>[body_shape] = 'buoyant'</Filter>
+      <Filter>[body_shape] = 'pile' or [body_shape] = 'lattice' or [body_shape] = 'buoyant'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/beacon/pile/outer.svg" transform="scale(0.5) translate(0,-4.5)" />
     </Rule>
     <Rule>
-      <Filter>[body_shape] = 'perch'</Filter>
-      <Filter>[body_shape] = 'pole'</Filter>
-      <Filter>[body_shape] = 'post'</Filter>
-      <Filter>[body_shape] = 'stake'</Filter>
+      <Filter>[body_shape] = 'perch' or [body_shape] = 'pole' or [body_shape] = 'post' or [body_shape] = 'stake'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/beacon/stake/stake.svg" transform="scale(0.5) translate(0,-4.5)" />
     </Rule>
     <Rule>
