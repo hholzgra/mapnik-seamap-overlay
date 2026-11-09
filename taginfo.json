@@ -1,0 +1,2305 @@
+{
+  "data_format": 1,
+  "data_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo.json",
+  "data_updated": "20261109T082608Z",
+  "project": {
+    "name": "MapOSMatic seamap overlay",
+    "description": "Mapnik overlay style rendering sea marks and lights similar to OpenSeaMap, for printable maps with MapOSMatic.",
+    "project_url": "https://github.com/hholzgra/mapnik-seamap-overlay",
+    "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/light/major.png",
+    "contact_name": "Hartmut Holzgraefe",
+    "contact_email": "hartmut.holzgraefe@gmail.com"
+  },
+  "tags": [
+    {
+      "key": "seamark:light:colour",
+      "object_types": [
+        "node"
+      ],
+      "description": "Any node with seamark:light:* tags gets a light flare in the light's colour (also numbered seamark:light:N:* sector tags)",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/light/light.png"
+    },
+    {
+      "key": "seamark:light:character",
+      "object_types": [
+        "node"
+      ],
+      "description": "Light characteristic, part of the light label (also numbered seamark:light:N:character)"
+    },
+    {
+      "key": "seamark:light:group",
+      "object_types": [
+        "node"
+      ],
+      "description": "Light group, part of the light label (also numbered seamark:light:N:group)"
+    },
+    {
+      "key": "seamark:light:period",
+      "object_types": [
+        "node"
+      ],
+      "description": "Light period, part of the light label (also numbered seamark:light:N:period)"
+    },
+    {
+      "key": "seamark:light:range",
+      "object_types": [
+        "node"
+      ],
+      "description": "Light range, part of the light label and the sector arc radius (also numbered seamark:light:N:range)"
+    },
+    {
+      "key": "seamark:light:height",
+      "object_types": [
+        "node"
+      ],
+      "description": "Light height, part of the light label (also numbered seamark:light:N:height)"
+    },
+    {
+      "key": "seamark:light:category",
+      "object_types": [
+        "node"
+      ],
+      "description": "Light category, \"directional\" lights are labelled differently (also numbered seamark:light:N:category)"
+    },
+    {
+      "key": "seamark:light:sector_start",
+      "object_types": [
+        "node"
+      ],
+      "description": "Start bearing of a light sector arc (also numbered seamark:light:N:sector_start)"
+    },
+    {
+      "key": "seamark:light:sector_end",
+      "object_types": [
+        "node"
+      ],
+      "description": "End bearing of a light sector arc (also numbered seamark:light:N:sector_end)"
+    },
+    {
+      "key": "seamark:type",
+      "value": "light_major",
+      "object_types": [
+        "node"
+      ],
+      "description": "Major light",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/light/major.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "light_minor",
+      "object_types": [
+        "node"
+      ],
+      "description": "Minor light",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/light/minor.png"
+    },
+    {
+      "key": "seamark:name",
+      "object_types": [
+        "node",
+        "area"
+      ],
+      "description": "Label for major lights, anchorages and hulks"
+    },
+    {
+      "key": "seamark:type",
+      "value": "harbour",
+      "object_types": [
+        "node",
+        "area"
+      ],
+      "description": "Harbour",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/harbour/harbour.png"
+    },
+    {
+      "key": "water",
+      "value": "harbour",
+      "object_types": [
+        "node",
+        "area"
+      ],
+      "description": "Harbour",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/harbour/harbour.png"
+    },
+    {
+      "key": "seamark:harbour:category",
+      "value": "fishing",
+      "object_types": [
+        "node",
+        "area"
+      ],
+      "description": "Harbour category fishing",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/harbour/fishing.png"
+    },
+    {
+      "key": "seamark:harbour:category",
+      "value": "marina",
+      "object_types": [
+        "node",
+        "area"
+      ],
+      "description": "Harbour category marina",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/harbour/marina.png"
+    },
+    {
+      "key": "seamark:harbour:category",
+      "value": "marina_no_facilities",
+      "object_types": [
+        "node",
+        "area"
+      ],
+      "description": "Harbour category marina_no_facilities",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/harbour/marina_no_facilities.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "anchorage",
+      "object_types": [
+        "node",
+        "area"
+      ],
+      "description": "Anchorage, areas get a dashed anchor border",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/anchorage/anchorage.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "restricted_area",
+      "object_types": [
+        "area"
+      ],
+      "description": "Restricted area border (not for boundary=protected_area)",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/anchorage/restricted.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "dumping_ground",
+      "object_types": [
+        "area"
+      ],
+      "description": "Dumping ground, rendered like a restricted area",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/anchorage/restricted.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "rock",
+      "object_types": [
+        "node"
+      ],
+      "description": "Rock",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/rock/rock.png"
+    },
+    {
+      "key": "seamark:rock:water_level",
+      "value": "awash",
+      "object_types": [
+        "node"
+      ],
+      "description": "Rock awash",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/rock/awash.png"
+    },
+    {
+      "key": "seamark:rock:water_level",
+      "value": "covers",
+      "object_types": [
+        "node"
+      ],
+      "description": "Rock that covers and uncovers",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/rock/covers.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "wreck",
+      "object_types": [
+        "node"
+      ],
+      "description": "Wreck",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/wreck/dangerous.png"
+    },
+    {
+      "key": "seamark:wreck:category",
+      "value": "dangerous",
+      "object_types": [
+        "node"
+      ],
+      "description": "Wreck category dangerous",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/wreck/dangerous.png"
+    },
+    {
+      "key": "seamark:wreck:category",
+      "value": "mast_showing",
+      "object_types": [
+        "node"
+      ],
+      "description": "Wreck category mast_showing",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/wreck/dangerous.png"
+    },
+    {
+      "key": "seamark:wreck:category",
+      "value": "non-dangerous",
+      "object_types": [
+        "node"
+      ],
+      "description": "Wreck category non-dangerous",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/wreck/non_dangerous.png"
+    },
+    {
+      "key": "seamark:wreck:category",
+      "value": "distributed_remains",
+      "object_types": [
+        "node"
+      ],
+      "description": "Wreck category distributed_remains",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/wreck/non_dangerous.png"
+    },
+    {
+      "key": "seamark:wreck:category",
+      "value": "hull_showing",
+      "object_types": [
+        "node"
+      ],
+      "description": "Wreck category hull_showing",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/wreck/showing.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "buoy_cardinal",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy, shape only (no colours or top marks yet)",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/spar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_cardinal:shape",
+      "value": "conical",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape conical",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/cone/outer.png"
+    },
+    {
+      "key": "seamark:buoy_cardinal:shape",
+      "value": "can",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape can",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/can/outer.png"
+    },
+    {
+      "key": "seamark:buoy_cardinal:shape",
+      "value": "spherical",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape spherical",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/sphere/outer.png"
+    },
+    {
+      "key": "seamark:buoy_cardinal:shape",
+      "value": "pillar",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape pillar",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/pillar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_cardinal:shape",
+      "value": "spar",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape spar",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/spar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_cardinal:shape",
+      "value": "barrel",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape barrel",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/barrel/outer.png"
+    },
+    {
+      "key": "seamark:buoy_cardinal:shape",
+      "value": "super-buoy",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape super-buoy",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/installation/outer.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "buoy_installation",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy, shape only (no colours or top marks yet)",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/spar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_installation:shape",
+      "value": "conical",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape conical",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/cone/outer.png"
+    },
+    {
+      "key": "seamark:buoy_installation:shape",
+      "value": "can",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape can",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/can/outer.png"
+    },
+    {
+      "key": "seamark:buoy_installation:shape",
+      "value": "spherical",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape spherical",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/sphere/outer.png"
+    },
+    {
+      "key": "seamark:buoy_installation:shape",
+      "value": "pillar",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape pillar",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/pillar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_installation:shape",
+      "value": "spar",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape spar",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/spar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_installation:shape",
+      "value": "barrel",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape barrel",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/barrel/outer.png"
+    },
+    {
+      "key": "seamark:buoy_installation:shape",
+      "value": "super-buoy",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape super-buoy",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/installation/outer.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "buoy_isolated_danger",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy, shape only (no colours or top marks yet)",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/spar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_isolated_danger:shape",
+      "value": "conical",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape conical",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/cone/outer.png"
+    },
+    {
+      "key": "seamark:buoy_isolated_danger:shape",
+      "value": "can",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape can",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/can/outer.png"
+    },
+    {
+      "key": "seamark:buoy_isolated_danger:shape",
+      "value": "spherical",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape spherical",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/sphere/outer.png"
+    },
+    {
+      "key": "seamark:buoy_isolated_danger:shape",
+      "value": "pillar",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape pillar",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/pillar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_isolated_danger:shape",
+      "value": "spar",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape spar",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/spar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_isolated_danger:shape",
+      "value": "barrel",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape barrel",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/barrel/outer.png"
+    },
+    {
+      "key": "seamark:buoy_isolated_danger:shape",
+      "value": "super-buoy",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape super-buoy",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/installation/outer.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "buoy_lateral",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy, shape only (no colours or top marks yet)",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/spar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_lateral:shape",
+      "value": "conical",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape conical",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/cone/outer.png"
+    },
+    {
+      "key": "seamark:buoy_lateral:shape",
+      "value": "can",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape can",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/can/outer.png"
+    },
+    {
+      "key": "seamark:buoy_lateral:shape",
+      "value": "spherical",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape spherical",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/sphere/outer.png"
+    },
+    {
+      "key": "seamark:buoy_lateral:shape",
+      "value": "pillar",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape pillar",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/pillar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_lateral:shape",
+      "value": "spar",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape spar",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/spar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_lateral:shape",
+      "value": "barrel",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape barrel",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/barrel/outer.png"
+    },
+    {
+      "key": "seamark:buoy_lateral:shape",
+      "value": "super-buoy",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape super-buoy",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/installation/outer.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "buoy_safe_water",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy, shape only (no colours or top marks yet)",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/spar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_safe_water:shape",
+      "value": "conical",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape conical",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/cone/outer.png"
+    },
+    {
+      "key": "seamark:buoy_safe_water:shape",
+      "value": "can",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape can",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/can/outer.png"
+    },
+    {
+      "key": "seamark:buoy_safe_water:shape",
+      "value": "spherical",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape spherical",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/sphere/outer.png"
+    },
+    {
+      "key": "seamark:buoy_safe_water:shape",
+      "value": "pillar",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape pillar",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/pillar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_safe_water:shape",
+      "value": "spar",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape spar",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/spar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_safe_water:shape",
+      "value": "barrel",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape barrel",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/barrel/outer.png"
+    },
+    {
+      "key": "seamark:buoy_safe_water:shape",
+      "value": "super-buoy",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape super-buoy",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/installation/outer.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "buoy_special_purpose",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy, shape only (no colours or top marks yet)",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/spar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_special_purpose:shape",
+      "value": "conical",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape conical",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/cone/outer.png"
+    },
+    {
+      "key": "seamark:buoy_special_purpose:shape",
+      "value": "can",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape can",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/can/outer.png"
+    },
+    {
+      "key": "seamark:buoy_special_purpose:shape",
+      "value": "spherical",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape spherical",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/sphere/outer.png"
+    },
+    {
+      "key": "seamark:buoy_special_purpose:shape",
+      "value": "pillar",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape pillar",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/pillar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_special_purpose:shape",
+      "value": "spar",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape spar",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/spar/outer.png"
+    },
+    {
+      "key": "seamark:buoy_special_purpose:shape",
+      "value": "barrel",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape barrel",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/barrel/outer.png"
+    },
+    {
+      "key": "seamark:buoy_special_purpose:shape",
+      "value": "super-buoy",
+      "object_types": [
+        "node"
+      ],
+      "description": "Buoy shape super-buoy",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/buoy/installation/outer.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "beacon_cardinal",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon, shape only (no colours or top marks yet)",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_cardinal:shape",
+      "value": "pile",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape pile",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_cardinal:shape",
+      "value": "lattice",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape lattice",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_cardinal:shape",
+      "value": "buoyant",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape buoyant",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_cardinal:shape",
+      "value": "perch",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape perch",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_cardinal:shape",
+      "value": "pole",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape pole",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_cardinal:shape",
+      "value": "post",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape post",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_cardinal:shape",
+      "value": "stake",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape stake",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_cardinal:shape",
+      "value": "tower",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape tower",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/tower/tower.png"
+    },
+    {
+      "key": "seamark:beacon_cardinal:shape",
+      "value": "cairn",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape cairn",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/tower/tower.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "beacon_isolated_danger",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon, shape only (no colours or top marks yet)",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_isolated_danger:shape",
+      "value": "pile",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape pile",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_isolated_danger:shape",
+      "value": "lattice",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape lattice",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_isolated_danger:shape",
+      "value": "buoyant",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape buoyant",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_isolated_danger:shape",
+      "value": "perch",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape perch",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_isolated_danger:shape",
+      "value": "pole",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape pole",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_isolated_danger:shape",
+      "value": "post",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape post",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_isolated_danger:shape",
+      "value": "stake",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape stake",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_isolated_danger:shape",
+      "value": "tower",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape tower",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/tower/tower.png"
+    },
+    {
+      "key": "seamark:beacon_isolated_danger:shape",
+      "value": "cairn",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape cairn",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/tower/tower.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "beacon_lateral",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon, shape only (no colours or top marks yet)",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_lateral:shape",
+      "value": "pile",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape pile",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_lateral:shape",
+      "value": "lattice",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape lattice",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_lateral:shape",
+      "value": "buoyant",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape buoyant",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_lateral:shape",
+      "value": "perch",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape perch",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_lateral:shape",
+      "value": "pole",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape pole",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_lateral:shape",
+      "value": "post",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape post",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_lateral:shape",
+      "value": "stake",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape stake",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_lateral:shape",
+      "value": "tower",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape tower",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/tower/tower.png"
+    },
+    {
+      "key": "seamark:beacon_lateral:shape",
+      "value": "cairn",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape cairn",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/tower/tower.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "beacon_safe_water",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon, shape only (no colours or top marks yet)",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_safe_water:shape",
+      "value": "pile",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape pile",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_safe_water:shape",
+      "value": "lattice",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape lattice",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_safe_water:shape",
+      "value": "buoyant",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape buoyant",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_safe_water:shape",
+      "value": "perch",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape perch",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_safe_water:shape",
+      "value": "pole",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape pole",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_safe_water:shape",
+      "value": "post",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape post",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_safe_water:shape",
+      "value": "stake",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape stake",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_safe_water:shape",
+      "value": "tower",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape tower",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/tower/tower.png"
+    },
+    {
+      "key": "seamark:beacon_safe_water:shape",
+      "value": "cairn",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape cairn",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/tower/tower.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "beacon_special_purpose",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon, shape only (no colours or top marks yet)",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_special_purpose:shape",
+      "value": "pile",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape pile",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_special_purpose:shape",
+      "value": "lattice",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape lattice",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_special_purpose:shape",
+      "value": "buoyant",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape buoyant",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/pile/outer.png"
+    },
+    {
+      "key": "seamark:beacon_special_purpose:shape",
+      "value": "perch",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape perch",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_special_purpose:shape",
+      "value": "pole",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape pole",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_special_purpose:shape",
+      "value": "post",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape post",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_special_purpose:shape",
+      "value": "stake",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape stake",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/stake/stake.png"
+    },
+    {
+      "key": "seamark:beacon_special_purpose:shape",
+      "value": "tower",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape tower",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/tower/tower.png"
+    },
+    {
+      "key": "seamark:beacon_special_purpose:shape",
+      "value": "cairn",
+      "object_types": [
+        "node"
+      ],
+      "description": "Beacon shape cairn",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/beacon/tower/tower.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "navigation_line",
+      "object_types": [
+        "way"
+      ],
+      "description": "Navigation line, dashed"
+    },
+    {
+      "key": "seamark:navigation_line:orientation",
+      "object_types": [
+        "way"
+      ],
+      "description": "Navigation line label (degrees)"
+    },
+    {
+      "key": "seamark:type",
+      "value": "rescue_station",
+      "object_types": [
+        "node",
+        "area"
+      ],
+      "description": "Rescue station",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/rescue/station.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "landmark",
+      "object_types": [
+        "node"
+      ],
+      "description": "Landmark; without category it is shown as a major light like on OpenSeaMap",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/light/major.png"
+    },
+    {
+      "key": "seamark:landmark:category",
+      "value": "mast",
+      "object_types": [
+        "node"
+      ],
+      "description": "Mast",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/landmark/mast.png"
+    },
+    {
+      "key": "seamark:landmark:category",
+      "value": "chimney",
+      "object_types": [
+        "node"
+      ],
+      "description": "Chimney",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/landmark/chimney.png"
+    },
+    {
+      "key": "seamark:landmark:function",
+      "value": "light",
+      "object_types": [
+        "node"
+      ],
+      "description": "Landmark without category but with light function is shown as major light",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/light/major.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "radio_station",
+      "object_types": [
+        "node"
+      ],
+      "description": "Radio station with range circle",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/radio_station/station.png"
+    },
+    {
+      "key": "seamark:radio_station:category",
+      "object_types": [
+        "node"
+      ],
+      "description": "Radio station label (AIS, RC, RD, DGPS ...)"
+    },
+    {
+      "key": "seamark:type",
+      "value": "fog_signal",
+      "object_types": [
+        "node"
+      ],
+      "description": "Fog signal",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/fog_signal/fog_signal.png"
+    },
+    {
+      "key": "seamark:fog_signal:category",
+      "object_types": [
+        "node"
+      ],
+      "description": "Nodes with a fog signal category get a fog signal symbol and label",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/fog_signal/fog_signal.png"
+    },
+    {
+      "key": "seamark:fog_signal:group",
+      "object_types": [
+        "node"
+      ],
+      "description": "Fog signal group, part of the fog signal label"
+    },
+    {
+      "key": "seamark:fog_signal:period",
+      "object_types": [
+        "node"
+      ],
+      "description": "Fog signal period, part of the fog signal label"
+    },
+    {
+      "key": "seamark:type",
+      "value": "mooring",
+      "object_types": [
+        "node"
+      ],
+      "description": "Mooring, rendered depending on category"
+    },
+    {
+      "key": "seamark:mooring:category",
+      "value": "dolphin",
+      "object_types": [
+        "node"
+      ],
+      "description": "Mooring dolphin",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/mooring/dolphin.png"
+    },
+    {
+      "key": "seamark:mooring:category",
+      "value": "deviated_dolphin",
+      "object_types": [
+        "node"
+      ],
+      "description": "Mooring deviated dolphin",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/mooring/deviated_dolphin.png"
+    },
+    {
+      "key": "seamark:mooring:category",
+      "value": "buoy",
+      "object_types": [
+        "node"
+      ],
+      "description": "Mooring buoy",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/mooring/mooring.png"
+    },
+    {
+      "key": "seamark:mooring:category",
+      "value": "pile",
+      "object_types": [
+        "node"
+      ],
+      "description": "Mooring pile",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/mooring/pile.png"
+    },
+    {
+      "key": "seamark:mooring:category",
+      "value": "post",
+      "object_types": [
+        "node"
+      ],
+      "description": "Mooring post",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/mooring/post.png"
+    },
+    {
+      "key": "seamark:mooring:category",
+      "value": "bollard",
+      "object_types": [
+        "node"
+      ],
+      "description": "Mooring bollard",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/mooring/post.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "hulk",
+      "object_types": [
+        "area"
+      ],
+      "description": "Hulk, yellow area with name label"
+    },
+    {
+      "key": "seamark:type",
+      "value": "notice",
+      "object_types": [
+        "node"
+      ],
+      "description": "Notice mark (CEVNI waterway sign), rendered by category"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_wash",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no wash",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_wash.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_entry",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no entry",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_entry.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "closed_area",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: closed area",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/closed_area.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_passage_left",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no passage left",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_passage_left.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_passage_right",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no passage right",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_passage_right.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_anchoring",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no anchoring",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_anchoring.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_berthing",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no berthing",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_berthing.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_passing",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no passing",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_passing.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_convoy_passing",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no convoy passing",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_convoy_passing.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_overtaking",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no overtaking",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_overtaking.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_convoy_overtaking",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no convoy overtaking",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_convoy_overtaking.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_mooring",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no mooring",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_mooring.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_turning",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no turning",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_turning.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_motor_craft",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no motor craft",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_motor_craft.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_sport_craft",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no sport craft",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_sport_craft.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_waterskiing",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no waterskiing",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_waterskiing.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_sailing_craft",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no sailing craft",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_sailing_craft.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_unpowered_craft",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no unpowered craft",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_unpowered_craft.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_sailboards",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no sailboards",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_sailboards.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_high_speeds",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no high speeds",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_high_speeds.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "no_launching_beaching",
+      "object_types": [
+        "node"
+      ],
+      "description": "Prohibition notice: no launching beaching",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/prohibition/no_launching_beaching.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "move_to_left",
+      "object_types": [
+        "node"
+      ],
+      "description": "Regulation notice: move to left",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/regulation/move_to_left.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "move_to_right",
+      "object_types": [
+        "node"
+      ],
+      "description": "Regulation notice: move to right",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/regulation/move_to_right.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "move_to_port",
+      "object_types": [
+        "node"
+      ],
+      "description": "Regulation notice: move to port",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/regulation/move_to_port.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "keep_to_port",
+      "object_types": [
+        "node"
+      ],
+      "description": "Regulation notice: keep to port",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/regulation/keep_to_port.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "keep_to_starboard",
+      "object_types": [
+        "node"
+      ],
+      "description": "Regulation notice: keep to starboard",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/regulation/keep_to_starboard.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "cross_to_starboard",
+      "object_types": [
+        "node"
+      ],
+      "description": "Regulation notice: cross to starboard",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/regulation/cross_to_starboard.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "cross_to_port",
+      "object_types": [
+        "node"
+      ],
+      "description": "Regulation notice: cross to port",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/regulation/cross_to_port.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "stop",
+      "object_types": [
+        "node"
+      ],
+      "description": "Regulation notice: stop",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/regulation/stop.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "sound_horn",
+      "object_types": [
+        "node"
+      ],
+      "description": "Regulation notice: sound horn",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/regulation/sound_horn.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "keep_lockout",
+      "object_types": [
+        "node"
+      ],
+      "description": "Regulation notice: keep lockout",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/regulation/keep_lockout.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "give_way_junction",
+      "object_types": [
+        "node"
+      ],
+      "description": "Regulation notice: give way junction",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/regulation/give_way_junction.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "give_way_crossing",
+      "object_types": [
+        "node"
+      ],
+      "description": "Regulation notice: give way crossing",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/regulation/give_way_crossing.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "anchoring_permitted",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: anchoring permitted",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/anchoring_permitted.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berthing_marked_1",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berthing marked 1",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berthing_marked_1.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berthing_marked_2",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berthing marked 2",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berthing_marked_2.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berthing_marked_3",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berthing marked 3",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berthing_marked_3.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berthing_marked_non_pushing_1",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berthing marked non pushing 1",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berthing_marked_non_pushing_1.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berthing_marked_non_pushing_2",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berthing marked non pushing 2",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berthing_marked_non_pushing_2.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berthing_marked_non_pushing_3",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berthing marked non pushing 3",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berthing_marked_non_pushing_3.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berthing_marked_pushing_1",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berthing marked pushing 1",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berthing_marked_pushing_1.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berthing_marked_pushing_2",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berthing marked pushing 2",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berthing_marked_pushing_2.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berthing_marked_pushing_3",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berthing marked pushing 3",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berthing_marked_pushing_3.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berthing_permitted",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berthing permitted",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berthing_permitted.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berthing_unmarked_non_pushing",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berthing unmarked non pushing",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berthing_unmarked_non_pushing.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berthing_unmarked_pushing",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berthing unmarked pushing",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berthing_unmarked_pushing.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berthing_unmarked",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berthing unmarked",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berthing_unmarked.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "berth_rafting_limit",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: berth rafting limit",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/berth_rafting_limit.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "drinking_water",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: drinking water",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/drinking_water.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "entry_permitted",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: entry permitted",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/entry_permitted.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "ferry_independent",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: ferry independent",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/ferry_independent.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "ferry_non_independent",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: ferry non independent",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/ferry_non_independent.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "high_speeds_permitted",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: high speeds permitted",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/high_speeds_permitted.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "information",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: information",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/information.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "launching_beaching_permitted",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: launching beaching permitted",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/launching_beaching_permitted.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "main_waterway_ahead_left_secondary_right",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: main waterway ahead left secondary right",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/main_waterway_ahead_left_secondary_right.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "main_waterway_ahead_left",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: main waterway ahead left",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/main_waterway_ahead_left.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "main_waterway_ahead_right_secondary_left",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: main waterway ahead right secondary left",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/main_waterway_ahead_right_secondary_left.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "main_waterway_ahead_right",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: main waterway ahead right",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/main_waterway_ahead_right.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "main_waterway_crossing",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: main waterway crossing",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/main_waterway_crossing.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "main_waterway_junction",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: main waterway junction",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/main_waterway_junction.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "main_waterway_left_secondary_ahead_right",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: main waterway left secondary ahead right",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/main_waterway_left_secondary_ahead_right.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "main_waterway_left_secondary_ahead",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: main waterway left secondary ahead",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/main_waterway_left_secondary_ahead.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "main_waterway_left_secondary_right",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: main waterway left secondary right",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/main_waterway_left_secondary_right.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "main_waterway_right_secondary_ahead_left",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: main waterway right secondary ahead left",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/main_waterway_right_secondary_ahead_left.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "main_waterway_right_secondary_ahead",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: main waterway right secondary ahead",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/main_waterway_right_secondary_ahead.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "main_waterway_right_secondary_left",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: main waterway right secondary left",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/main_waterway_right_secondary_left.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "mooring_permitted",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: mooring permitted",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/mooring_permitted.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "motor_craft_permitted",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: motor craft permitted",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/motor_craft_permitted.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "overhead_cable",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: overhead cable",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/overhead_cable.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "prohibition_ends",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: prohibition ends",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/prohibition_ends.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "sailboards_permitted",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: sailboards permitted",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/sailboards_permitted.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "sailing_craft_permitted",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: sailing craft permitted",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/sailing_craft_permitted.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "secondary_waterway_crossing",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: secondary waterway crossing",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/secondary_waterway_crossing.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "secondary_waterway_left",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: secondary waterway left",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/secondary_waterway_left.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "secondary_waterway_right",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: secondary waterway right",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/secondary_waterway_right.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "sport_craft_permitted",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: sport craft permitted",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/sport_craft_permitted.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "telephone",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: telephone",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/telephone.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "turn_area",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: turn area",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/turn_area.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "unpowered_craft_permitted",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: unpowered craft permitted",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/unpowered_craft_permitted.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "vehicle_loading_berth",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: vehicle loading berth",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/vehicle_loading_berth.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "waterbikes_permitted",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: waterbikes permitted",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/waterbikes_permitted.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "waterskiing_permitted",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: waterskiing permitted",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/waterskiing_permitted.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "weir",
+      "object_types": [
+        "node"
+      ],
+      "description": "Information notice: weir",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/information/weir.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "channel_one_way",
+      "object_types": [
+        "node"
+      ],
+      "description": "Recommendation notice: channel one way",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/recommendation/channel_one_way.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "channel_two_way",
+      "object_types": [
+        "node"
+      ],
+      "description": "Recommendation notice: channel two way",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/recommendation/channel_two_way.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "opening_to_left",
+      "object_types": [
+        "node"
+      ],
+      "description": "Recommendation notice: opening to left",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/recommendation/opening_to_left.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "opening_to_right",
+      "object_types": [
+        "node"
+      ],
+      "description": "Recommendation notice: opening to right",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/recommendation/opening_to_right.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "proceed_to_left",
+      "object_types": [
+        "node"
+      ],
+      "description": "Recommendation notice: proceed to left",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/recommendation/proceed_to_left.png"
+    },
+    {
+      "key": "seamark:notice:category",
+      "value": "proceed_to_right",
+      "object_types": [
+        "node"
+      ],
+      "description": "Recommendation notice: proceed to right",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/notice/recommendation/proceed_to_right.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "waterway_gauge",
+      "object_types": [
+        "node"
+      ],
+      "description": "Waterway gauge",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/waterway_gauge/waterway_gauge.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "bridge",
+      "object_types": [
+        "node"
+      ],
+      "description": "Bridge, shown only with a clearance height"
+    },
+    {
+      "key": "seamark:bridge:clearance_height",
+      "object_types": [
+        "node"
+      ],
+      "description": "Bridge clearance height shield",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/bridge/clearance_height.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "crane",
+      "object_types": [
+        "node",
+        "way",
+        "area"
+      ],
+      "description": "Crane",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/crane/crane.png"
+    },
+    {
+      "key": "seamark:crane:category",
+      "value": "container",
+      "object_types": [
+        "node",
+        "way",
+        "area"
+      ],
+      "description": "Container crane",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/crane/container_crane.png"
+    },
+    {
+      "key": "seamark:type",
+      "value": "small_craft_facility",
+      "object_types": [
+        "node"
+      ],
+      "description": "Small craft facility, rendered depending on category"
+    },
+    {
+      "key": "seamark:small_craft_facility:category",
+      "value": "visitor_berth",
+      "object_types": [
+        "node"
+      ],
+      "description": "Visitor berth",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/small_craft_facility/visitor_berth.png"
+    },
+    {
+      "key": "seamark:small_craft_facility:category",
+      "value": "nautical_club",
+      "object_types": [
+        "node"
+      ],
+      "description": "Nautical club",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/small_craft_facility/nautical_club.png"
+    },
+    {
+      "key": "seamark:small_craft_facility:category",
+      "value": "boat_hoist",
+      "object_types": [
+        "node"
+      ],
+      "description": "Boat hoist",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/small_craft_facility/boat_hoist.png"
+    },
+    {
+      "key": "seamark:small_craft_facility:category",
+      "value": "boatyard",
+      "object_types": [
+        "node"
+      ],
+      "description": "Boatyard",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/small_craft_facility/boatyard.png"
+    },
+    {
+      "key": "seamark:small_craft_facility:category",
+      "value": "chandler",
+      "object_types": [
+        "node"
+      ],
+      "description": "Chandler",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/small_craft_facility/chandler.png"
+    },
+    {
+      "key": "seamark:small_craft_facility:category",
+      "value": "fuel_station",
+      "object_types": [
+        "node"
+      ],
+      "description": "Fuel station",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/small_craft_facility/fuel_station.png"
+    },
+    {
+      "key": "seamark:small_craft_facility:category",
+      "value": "showers",
+      "object_types": [
+        "node"
+      ],
+      "description": "Showers",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/small_craft_facility/showers.png"
+    },
+    {
+      "key": "seamark:small_craft_facility:category",
+      "value": "launderette",
+      "object_types": [
+        "node"
+      ],
+      "description": "Launderette",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/small_craft_facility/launderette.png"
+    },
+    {
+      "key": "seamark:small_craft_facility:category",
+      "value": "toilets",
+      "object_types": [
+        "node"
+      ],
+      "description": "Toilets",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/small_craft_facility/toilets.png"
+    },
+    {
+      "key": "seamark:small_craft_facility:category",
+      "value": "pump_out",
+      "object_types": [
+        "node"
+      ],
+      "description": "Pump out",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/small_craft_facility/pump_out.png"
+    },
+    {
+      "key": "seamark:small_craft_facility:category",
+      "value": "slipway",
+      "object_types": [
+        "node"
+      ],
+      "description": "Slipway",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/small_craft_facility/slipway.png"
+    },
+    {
+      "key": "seamark:small_craft_facility:category",
+      "value": "visitor_mooring",
+      "object_types": [
+        "node"
+      ],
+      "description": "Visitor mooring",
+      "icon_url": "https://raw.githubusercontent.com/hholzgra/mapnik-seamap-overlay/main/taginfo/icons/small_craft_facility/visitor_mooring.png"
+    }
+  ]
+}
