@@ -36,6 +36,7 @@
 
   <xi:include href="inc/rock.xml"/>
   <xi:include href="inc/wreck.xml"/>
+  <xi:include href="inc/obstruction"/>
 
   <xi:include href="inc/buoy.xml"/>
 
