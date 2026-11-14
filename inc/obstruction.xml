@@ -12,7 +12,7 @@
   <Style name="obstruction">
     <Rule>
       &maxscale_zoom14;
-	    <TextSymbolizer font-set="regular" size="16">#</TextSymbolizer> 
+      <TextSymbolizer font-set="regular" size="16">#</TextSymbolizer>
     </Rule>
   </Style>
 
@@ -22,16 +22,16 @@
       <Parameter name="table">
         (SELECT way
            FROM planet_osm_point
-	  WHERE tags->'seamark:type' = 'obstruction'
+          WHERE tags->'seamark:type' = 'obstruction'
          UNION
-	 SELECT ST_MakePolygon(way) as way
-	   FROM planet_osm_line
-	   WHERE ST_IsClosed(way)
-	     AND tags->'seamark:type' = 'obstruction'
-	  UNION
-	  SELECT way
-	    FROM planet_osm_polygon
-	     AND tags->'seamark:type' = 'obstruction'
+         SELECT ST_MakePolygon(way) as way
+           FROM planet_osm_line
+           WHERE ST_IsClosed(way)
+             AND tags->'seamark:type' = 'obstruction'
+          UNION
+          SELECT way
+            FROM planet_osm_polygon
+             AND tags->'seamark:type' = 'obstruction'
         ) AS way
       </Parameter>
       <Parameter name="geometry_field">way</Parameter>
