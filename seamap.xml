@@ -52,6 +52,7 @@
   <xi:include href="inc/fog_horn.xml"/>
 
   <xi:include href="inc/mooring.xml"/>
+  <xi:include href="inc/pile.xml"/>
 
   <xi:include href="inc/hulk.xml"/>
 
