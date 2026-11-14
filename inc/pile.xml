@@ -12,7 +12,6 @@
   <Style name="pile">
     <Rule>
       &maxscale_zoom14;
-      <Filter>[category]="pile"</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/mooring/pile.svg" transform="scale(0.2)" />
     </Rule>
   </Style>
