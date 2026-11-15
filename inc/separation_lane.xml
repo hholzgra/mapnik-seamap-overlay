@@ -9,14 +9,14 @@
        * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=separation_lane
   -->
 
-  <Style name="separation_line">
+  <Style name="separation_lane">
     <Rule>
       <MarkersSymbolizer placement="line" file="symbols/separation/lane_arrow.svg" transform="rotate(90) scale(0.5)"/>
     </Rule>
   </Style>
 
-  <Layer name="separation_line" status="on" srs="epsg:3857">
-    <StyleName>separation_line</StyleName>
+  <Layer name="separation_lane" status="on" srs="epsg:3857">
+    <StyleName>separation_lane</StyleName>
     <Datasource base="gis">
       <Parameter name="table">
         (SELECT way
