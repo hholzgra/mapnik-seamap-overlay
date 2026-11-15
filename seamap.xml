@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Map minimum-version="4.3.3" srs="epsg:3857" xmlns:xi="http://www.w3.org/2001/XInclude">
+<Map srs="epsg:3857" xmlns:xi="http://www.w3.org/2001/XInclude">
   <!-- Needs Mapnik 4.3.3 as the new ArcSymbolizer was first merged into that version -->
 
   <Datasource name="gis">
@@ -27,6 +27,10 @@
     <Font face-name="Noto Sans Bold"/>
     <Font face-name="DejaVu Sans Book"/>
   </FontSet>
+
+  <xi:include href="inc/separation_boundary.xml"/>
+  <xi:include href="inc/separation_zone.xml"/>
+  <xi:include href="inc/separation_line.xml"/>
 
   <xi:include href="inc/light.xml"/>
 
@@ -67,4 +71,6 @@
   <xi:include href="inc/crane.xml"/>
 
   <xi:include href="inc/small_craft_facility.xml"/>
+
+  <xi:include href="inc/seaplane_landing_area.xml"/>
 </Map>
