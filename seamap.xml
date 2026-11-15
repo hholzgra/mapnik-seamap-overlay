@@ -48,6 +48,7 @@
   <xi:include href="inc/beacon.xml"/>
 
   <xi:include href="inc/navigation_line.xml"/>
+  <xi:include href="inc/recommended_track.xml"/>
 
   <xi:include href="inc/rescue_station.xml"/>
   <xi:include href="inc/coastguard_station.xml"/>
