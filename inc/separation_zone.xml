@@ -24,12 +24,12 @@
               , tags->'seamark:name' AS name
            FROM planet_osm_line
           WHERE ST_IsClosed(way)
-            AND tags->'seamark:type' IN ('separation_zone','separation_crossing')
+            AND tags->'seamark:type' IN ('separation_zone','separation_crossing', 'separation_roundabout')
          UNION
          SELECT way
               , tags->'seamark:name' AS name
            FROM planet_osm_polygon
-          WHERE tags->'seamark:type' IN ('separation_zone','separation_crossing')
+          WHERE tags->'seamark:type' IN ('separation_zone','separation_crossing', 'separation_roundabout')
         ) AS way
       </Parameter>
       <Parameter name="geometry_field">way</Parameter>
