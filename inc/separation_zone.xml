@@ -11,7 +11,8 @@
 
   <Style name="separation_zone">
     <Rule>
-      <PolygonSymbolizer allow-overlap="true" fill="magenta" fill-opacity="0.3"/>
+      <PolygonSymbolizer allow-overlap="true" fill="#7E0B48" fill-opacity="0.3"/>
+      <TextSymbolizer fontset-name="regular" size="18" fill="magenta">[name]</TextSymbolizer>
     </Rule>
   </Style>
 
@@ -20,11 +21,13 @@
     <Datasource base="gis">
       <Parameter name="table">
         (SELECT ST_MakePolygon(way) as way
+              , tags->'seamark:name' AS name
            FROM planet_osm_line
           WHERE ST_IsClosed(way)
             AND tags->'seamark:type' IN ('separation_zone','separation_crossing')
          UNION
          SELECT way
+              , tags->'seamark:name' AS name
            FROM planet_osm_polygon
           WHERE tags->'seamark:type' IN ('separation_zone','separation_crossing')
         ) AS way
