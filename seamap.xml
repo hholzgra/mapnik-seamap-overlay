@@ -75,4 +75,6 @@
   <xi:include href="inc/small_craft_facility.xml"/>
 
   <xi:include href="inc/seaplane_landing_area.xml"/>
+
+  <xi:include href="inc/pilot_boarding.xml"/>
 </Map>
