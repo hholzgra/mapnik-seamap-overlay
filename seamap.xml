@@ -79,4 +79,6 @@
   <xi:include href="inc/pilot_boarding.xml"/>
 
   <xi:include href="inc/pipeline_overhead.xml"/>
+
+  <xi:include href="inc/distance_mark.xml"/>
 </Map>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=distance%20mark
+  -->
+
+  <Style name="distance_mark">
+    <Rule>
+      <Filter>[category] = 'not_installed'</Filter>
+      &maxscale_zoom14;
+      <ShieldSymbolizer allow-overlap="true" file="symbols/distance_mark/unmarked.svg" dy="10" fontset-name="regular" unlock-image="true">[label]</ShieldSymbolizer>
+    </Rule>
+    <Rule>
+      <ElseFilter/>
+      &maxscale_zoom14;
+      <ShieldSymbolizer allow-overlap="true" file="symbols/distance_mark/marked.svg" dy="10" fontset-name="regular" unlock-image="true">[label]</ShieldSymbolizer>
+    </Rule>
+  </Style>
+
+  <Layer name="distance_mark" status="on" srs="epsg:3857">
+    <StyleName>distance_mark</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (
+         SELECT way
+              , distance_mark_label( tags->'seamark:distance_mark:distance'
+                                   , tags->'seamark:distance_mark:units') AS label
+              , tags->'seamark:distance_mark:category' AS category
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'distance_mark'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
