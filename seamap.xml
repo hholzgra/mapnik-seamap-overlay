@@ -77,4 +77,6 @@
   <xi:include href="inc/seaplane_landing_area.xml"/>
 
   <xi:include href="inc/pilot_boarding.xml"/>
+
+  <xi:include href="inc/pipeline_overhead.xml"/>
 </Map>

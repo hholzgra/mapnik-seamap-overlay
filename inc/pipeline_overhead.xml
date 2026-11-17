@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type%3Dpipeline_overhead
+  -->
+
+
+  <Style name="pipeline_overhead">
+    <Rule>
+      <LineSymbolizer stroke-width="3" stroke="black"/>
+    </Rule>
+  </Style>
+
+  <Layer name="pipeline_overhead" status="on" srs="epsg:3857">
+    <StyleName>pipeline_overhead</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+           FROM planet_osm_line
+          WHERE tags->'seamark:type' = 'pileline_overhead'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
