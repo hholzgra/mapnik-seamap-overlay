@@ -81,4 +81,6 @@
   <xi:include href="inc/pipeline_overhead.xml"/>
 
   <xi:include href="inc/distance_mark.xml"/>
+
+  <xi:include href="inc/fairway.xml"/>
 </Map>

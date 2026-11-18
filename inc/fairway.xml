@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=farway
+  -->
+
+  <Style name="fairway">
+    <Rule>
+      <PolygonSymbolizer allow-overlap="true" fill="#FFFFFF" fill-opacity="0.3"/>
+    </Rule>
+  </Style>
+
+  <Layer name="fairway" status="on" srs="epsg:3857">
+    <StyleName>fairway</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT ST_MakePolygon(way) as way
+           FROM planet_osm_line
+          WHERE ST_IsClosed(way)
+            AND tags->'seamark:type' = 'fairway'
+         UNION
+         SELECT way
+           FROM planet_osm_polygon
+          WHERE tags->'seamark:type' = 'fairway'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
