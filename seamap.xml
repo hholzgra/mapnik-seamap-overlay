@@ -86,4 +86,6 @@
   <xi:include href="inc/distance_mark.xml"/>
 
   <xi:include href="inc/fairway.xml"/>
+
+  <xi:include href="inc/dredged_area.xml"/>
 </Map>

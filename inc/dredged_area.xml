@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=dredged_area
+  -->
+
+  <Style name="dredged_area">
+    <Rule>
+      <PolygonSymbolizer allow-overlap="true" fill="#FFFFFF" fill-opacity="0.3"/>
+      <LineSymbolizer stroke-dasharray="10,10" stroke-width="1" stroke="black"/>
+    </Rule>
+  </Style>
+
+  <Layer name="dredged_area" status="on" srs="epsg:3857">
+    <StyleName>dredged_area</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT ST_MakePolygon(way) as way
+           FROM planet_osm_line
+          WHERE ST_IsClosed(way)
+            AND tags->'seamark:type' = 'dredged_area'
+         UNION
+         SELECT way
+           FROM planet_osm_polygon
+          WHERE tags->'seamark:type' = 'dredged_area'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
