@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=radar_station
+  -->
+
+  <Style name="radar_station">
+    <Rule>
+      &maxscale_zoom14;
+      <MarkersSymbolizer allow-overlap="true" file="symbols/radar_station/radar_station.svg"/>
+    </Rule>
+  </Style>
+
+  <Layer name="radar_station" status="on" srs="epsg:3857">
+    <StyleName>radar_station</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (
+         SELECT way
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'radar_station'
+         UNION
+         SELECT ST_MakePolygon(way)
+           FROM planet_osm_line
+          WHERE tags->'seamark:type' = 'radar_station'
+            AND ST_IsClosed(way)
+         UNION
+         SELECT way
+           FROM planet_osm_polygon
+          WHERE tags->'seamark:type' = 'radar_station'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
