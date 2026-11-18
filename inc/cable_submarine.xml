@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type%3Dcable_submarine
+  -->
+
+
+  <Style name="cable_submarine">
+    <Rule>
+      <LinePatternSymbolizer file="symbols/cable_submarine/wave.svg" smooth="0.3"/>
+    </Rule>
+  </Style>
+
+  <Layer name="cable_submarine" status="on" srs="epsg:3857">
+    <StyleName>cable_submarine</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+           FROM planet_osm_line
+          WHERE tags->'seamark:type' = 'cable_submarine'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
