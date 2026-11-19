@@ -88,4 +88,6 @@
   <xi:include href="inc/fairway.xml"/>
 
   <xi:include href="inc/dredged_area.xml"/>
+
+  <xi:include href="inc/marine_farm.xml"/>
 </Map>

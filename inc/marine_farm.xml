@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=marine_farm
+  -->
+
+  <!-- TODO: only draw border line for farm areas above a certain size -->
+
+  <Style name="marine_farm_symbol">
+    <Rule>
+      &maxscale_zoom14;
+      <MarkersSymbolizer  placement="point" allow-overlap="true" file="symbols/marine_farm/marine_farm.svg" transform="scale(0.5)" />
+    </Rule>
+  </Style>
+
+  <Style name="marine_farm_area">
+    <Rule>
+      &maxscale_zoom12;
+      <LineSymbolizer stroke-dasharray="10,5"/>
+    </Rule>
+  </Style>
+
+  <Layer name="marine_farm" status="on" srs="epsg:3857">
+    <StyleName>marine_farm_symbol</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'marine_farm'
+         UNION
+         SELECT ST_MakePolygon(way) as way
+           FROM planet_osm_line
+          WHERE ST_IsClosed(way)
+            AND tags->'seamark:type' = 'marine_farm'
+         UNION
+         SELECT way
+           FROM planet_osm_polygon
+          WHERE tags->'seamark:type' = 'marine_farm'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+  <Layer name="marine_farm_area" status="on" srs="epsg:3857">
+    <StyleName>marine_farm_area</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT ST_MakePolygon(way) as way
+           FROM planet_osm_line
+          WHERE ST_IsClosed(way)
+            AND tags->'seamark:type' = 'marine_farm'
+         UNION
+         SELECT way
+           FROM planet_osm_polygon
+          WHERE tags->'seamark:type' = 'marine_farm'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
