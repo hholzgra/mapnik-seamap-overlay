@@ -24,6 +24,11 @@
       <Filter>[category]='chimney'</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/chimney.svg" transform="scale(4) translate(0,-8)"/>
     </Rule>
+    <Rule>
+      &maxscale_zoom12;
+      <Filter>[category]='tower'</Filter>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/tower.svg" transform="scale(4) translate(0,-8)"/>
+    </Rule>
   </Style>
 
   <Layer name="landmark" status="on" srs="epsg:3857">

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type%3Dcalling-in_point
+  -->
+
+
+  <Style name="calling_in_point">
+    <Rule>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/calling_in_point/calling_in_point.svg" transform="rotate([orientation]) scale(2)"/>
+      <TextSymbolizer fontset-name="regular" size="9" fill="black"
+                      dy="10" placement="point" allow-overlap="true">"Ch.["+[channel]+"]"</TextSymbolizer>
+    </Rule>
+  </Style>
+
+  <Layer name="calling_in_point" status="on" srs="epsg:3857">
+    <StyleName>calling_in_point</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+              , tags->'seamark:calling-in_point:orientation' AS orientation
+              , tags->'seamark:calling-in_point:channel' AS channel
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'calling-in_point'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>

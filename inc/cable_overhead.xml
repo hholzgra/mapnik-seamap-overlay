@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type%3Dcable_overhead
+  -->
+
+  <Style name="cable_overhead">
+    <Rule>
+      <LineSymbolizer stroke-dasharray="10,5,2,5" stroke-width="1" stroke="black"/>
+    </Rule>
+  </Style>
+
+  <Style name="cable_height">
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[height] != ''</Filter>
+      <ShieldSymbolizer allow-overlap="true" file="symbols/bridge/clearance_height.svg" fontset-name="regular">[height]</ShieldSymbolizer>
+    </Rule>
+  </Style>
+
+  <Layer name="cable_overhead" status="on" srs="epsg:3857">
+    <StyleName>cable_overhead</StyleName>
+    <StyleName>cable_height</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+              , COALESCE( tags->'seamark:cable_overhead:clearance_height'
+                        , tags->'seamark:cable_overhead:clearance_height_safe') as height
+           FROM planet_osm_line
+          WHERE tags->'seamark:type' = 'cable_overhead'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>

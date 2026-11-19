@@ -56,6 +56,7 @@
   <xi:include href="inc/landmark.xml"/>
 
   <xi:include href="inc/radio_station.xml"/>
+  <xi:include href="inc/calling_in_point.xml"/>
   <xi:include href="inc/radar_station.xml"/>
 
   <xi:include href="inc/fog_horn.xml"/>
@@ -81,6 +82,7 @@
 
   <xi:include href="inc/pipeline_overhead.xml"/>
   <xi:include href="inc/pipeline_submarine.xml"/>
+  <xi:include href="inc/cable_overhead.xml"/>
   <xi:include href="inc/cable_submarine.xml"/>
 
   <xi:include href="inc/distance_mark.xml"/>
