@@ -9,6 +9,8 @@
        * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=signal_station_warning
   -->
 
+  <!-- TODO render radio channel information? -->
+
   <Style name="signal_station_warning">
     <Rule>
       &maxscale_zoom14;
