@@ -92,4 +92,6 @@
   <xi:include href="inc/dredged_area.xml"/>
 
   <xi:include href="inc/marine_farm.xml"/>
+
+  <xi:include href="inc/signal_station_traffic.xml"/>
 </Map>

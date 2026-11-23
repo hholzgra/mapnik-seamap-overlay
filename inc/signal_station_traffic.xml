@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=coastguard%20station
+  -->
+
+  <Style name="signal_station_traffic">
+    <Rule>
+      &maxscale_zoom14;
+      <MarkersSymbolizer allow-overlap="true" file="symbols/signal_station_traffic/signal_station_traffic.svg"/>
+      <TextSymbolizer dy="-8" fontset-name='regular'>[label]</TextSymbolizer>
+    </Rule>
+  </Style>
+
+  <Layer name="signal_station_traffic" status="on" srs="epsg:3857">
+    <StyleName>signal_station_traffic</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (
+         SELECT way
+              , signal_station_traffic_label(tags->'seamark:signal_station_traffic:category') AS label
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'signal_station_traffic'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
