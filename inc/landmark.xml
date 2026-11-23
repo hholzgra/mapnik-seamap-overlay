@@ -11,7 +11,9 @@
        * https://wiki.openstreetmap.org/wiki/Key:seamark:landmark:function
   -->
 
-  <!-- TODO: Everything but mast is missing -->
+  <!-- TODO: some symbols still missing -->
+
+  <!-- TODO: not all landmarks are mere points, lines and polygons need to be handled, too -->
 
   <Style name="landmark">
     <Rule>
@@ -26,8 +28,48 @@
     </Rule>
     <Rule>
       &maxscale_zoom12;
-      <Filter>[category]='tower'</Filter>
+      <Filter>[category]='tower' or [category]='radar_scanner'</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/tower.svg" transform="scale(4) translate(0,-8)"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom12;
+      <Filter>[category]='column' or [cagetory]='monument' or [category]='monument' or [category]='obelisk' or [category]='statue'</Filter>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/monument.svg" transform="scale(4) translate(0,-8)"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom12;
+      <Filter>[category]='cross'</Filter>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/cross.svg" transform="scale(4) translate(0,-8)"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom12;
+      <Filter>[category]='windsack'</Filter>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/Windsack.svg" transform="scale(4) translate(0,-8)"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom12;
+      <Filter>[category]='windmotor'</Filter>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/wind-motor.svg" transform="scale(4) translate(0,-8)"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom12;
+      <Filter>[category]='windmill'</Filter>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/Windmill.svg" transform="scale(4) translate(0,-8)"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom12;
+      <Filter>[category]='dish_aerial'</Filter>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/dish.svg" transform="scale(4) translate(0,-8)"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom12;
+      <Filter>[category]='flagstaff'</Filter>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/flagstaff.svg" transform="scale(4) translate(0,-8)"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom12;
+      <Filter>[category]='flare_stack'</Filter>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/flarestack.svg" transform="scale(4) translate(0,-8)"/>
     </Rule>
   </Style>
 
