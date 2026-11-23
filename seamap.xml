@@ -94,4 +94,5 @@
   <xi:include href="inc/marine_farm.xml"/>
 
   <xi:include href="inc/signal_station_traffic.xml"/>
+  <xi:include href="inc/signal_station_warning.xml"/>
 </Map>
