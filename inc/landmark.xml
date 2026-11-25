@@ -33,7 +33,7 @@
     </Rule>
     <Rule>
       &maxscale_zoom12;
-      <Filter>[category]='column' or [cagetory]='monument' or [category]='monument' or [category]='obelisk' or [category]='statue'</Filter>
+      <Filter>[category]='column' or [category]='monument' or [category]='monument' or [category]='obelisk' or [category]='statue'</Filter>
       <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/monument.svg" transform="scale(4) translate(0,-8)"/>
     </Rule>
     <Rule>
@@ -44,7 +44,7 @@
     <Rule>
       &maxscale_zoom12;
       <Filter>[category]='windsack'</Filter>
-      <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/Windsack.svg" transform="scale(4) translate(0,-8)"/>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/landmark/Windsock.svg" transform="scale(4) translate(0,-8)"/>
     </Rule>
     <Rule>
       &maxscale_zoom12;
