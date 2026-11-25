@@ -39,15 +39,6 @@
        y2="10.099455"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.4841739,0,0,1.0032342,0.32887904,-0.1321176)" />
-    <symbol
-       id="octicons.svg:arrow-right"
-       viewBox="0 0 10 16">
-      <title
-         id="title5">arrow-right</title>
-      <path
-         d="M 10,8 4,3 V 6 H 0 v 4 h 4 v 3 z"
-         id="path5" />
-    </symbol>
     <linearGradient
        inkscape:collect="always"
        xlink:href="#swatch2"
@@ -57,15 +48,6 @@
        x2="19.450348"
        y2="10"
        gradientUnits="userSpaceOnUse" />
-    <symbol
-       id="octicons.svg:triangle-down"
-       viewBox="0 0 12 16">
-      <title
-         id="title162">triangle-down</title>
-      <path
-         d="m 0,5 6,6 6,-6 z"
-         id="path162" />
-    </symbol>
   </defs>
   <sodipodi:namedview
      id="namedview2"
@@ -107,25 +89,16 @@
      x="8.0921831"
      y="-6.0499525"
      transform="rotate(45)" />
-  <use
-     xlink:href="#octicons.svg:triangle-down"
-     width="12"
-     height="16"
+  <path
+     d="m 0,5 6,6 6,-6 z"
      style="fill:#0000ff;stroke:none"
-     id="use1"
      transform="matrix(0.42302688,0,0,0.67581996,7.4618387,5.4033654)" />
-  <use
-     xlink:href="#octicons.svg:triangle-down"
-     width="12"
-     height="16"
+  <path
+     d="m 0,5 6,6 6,-6 z"
      style="fill:#0000ff;stroke:none"
-     id="use1-3"
      transform="matrix(0.42302688,0,0,0.67581996,7.4618387,9.5544941)" />
-  <use
-     xlink:href="#octicons.svg:triangle-down"
-     width="12"
-     height="16"
+  <path
+     d="m 0,5 6,6 6,-6 z"
      style="fill:#0000ff;stroke:none"
-     id="use1-6"
      transform="matrix(0.42302688,0,0,0.67581996,7.4618387,1.2982457)" />
 </svg>

@@ -4,7 +4,7 @@
    width="20"
    height="20"
    id="svg2"
-   sodipodi:docname="secondary_waterway_right.svg"
+   sodipodi:docname="secondary_waterway_left.svg"
    inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
    xml:space="preserve"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -54,7 +54,7 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="13.756108"
-     inkscape:cx="10.031907"
+     inkscape:cx="9.9955598"
      inkscape:cy="9.9955598"
      inkscape:window-width="1824"
      inkscape:window-height="988"
@@ -74,7 +74,7 @@
      height="17.812864"
      x="1.1224499"
      y="1.0935678" /><path
-     d="M 12.02545,1.0197837 H 7.9890707 v 8.1889119 h -6.969287 v 1.6987634 h 6.969287 v 8.072758 H 12.02545 Z"
+     d="M 18.980217,9.2086956 H 12.02545 V 1.0197837 H 7.9890707 V 18.980217 H 12.02545 v -8.072758 h 6.954767 z"
      id="path1"
      style="fill:#ffffff;stroke-width:0.464619"
      sodipodi:nodetypes="ccccccccc" /></svg>
