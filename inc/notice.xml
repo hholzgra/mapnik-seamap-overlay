@@ -417,7 +417,7 @@
     </Rule>
     <Rule>
       &maxscale_zoom14;
-      <Filter>[category] = 'turn_area'</Filter>
+      <Filter>[category] = 'turning_area'</Filter>
       <MarkersSymbolizer  allow-overlap="true" file="symbols/notice/information/turn_area.svg"/>
     </Rule>
     <Rule>
