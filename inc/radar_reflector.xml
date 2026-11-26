@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/DE:Tag:seamark:type=radar_reflector
+  -->
+
+  <Style name="radar_reflector">
+    <Rule>
+      &maxscale_zoom14;
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/radar_reflector/radar_reflector.svg" transform="scale(0.5)" />
+    </Rule>
+  </Style>
+
+  <Layer name="radar_reflector" status="on" srs="epsg:3857">
+    <StyleName>radar_reflector</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'radar_reflector'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+  <Style name="radar_reflector_top">
+    <Rule>
+      &maxscale_zoom14;
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/radar_reflector/radar_reflector.svg" transform="scale(0.5) translate(0 -30)" />
+    </Rule>
+  </Style>
+
+  <Layer name="radar_reflector_top" status="on" srs="epsg:3857">
+    <StyleName>radar_reflector_top</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+           FROM planet_osm_point
+          WHERE tags->'seamark:radar_reflector' = 'yes'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
