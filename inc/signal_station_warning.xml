@@ -9,13 +9,10 @@
        * https://wiki.openstreetmap.org/wiki/Tag:seamark:type=signal_station_warning
   -->
 
-  <!-- TODO render radio channel information? -->
-
   <Style name="signal_station_warning">
     <Rule>
       &maxscale_zoom14;
       <MarkersSymbolizer allow-overlap="true" file="symbols/signal_station_warning/signal_station_warning.svg"/>
-      <TextSymbolizer dy="-8" fontset-name='regular'>[label]</TextSymbolizer>
     </Rule>
   </Style>
 
