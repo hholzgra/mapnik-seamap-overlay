@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/DE:Tag:seamark:type=virtual_aton
+  -->
+
+  <Style name="virtual_aton">
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category]='north_cardinal'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/virtual_aton/north_cardinal.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category]='south_cardinal'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/virtual_aton/south_cardinal.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category]='east_cardinal'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/virtual_aton/east_cardinal.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category]='west_cardinal'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/virtual_aton/west_cardinal.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category]='port_lateral'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/virtual_aton/port_lateral.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category]='starboard_lateral'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/virtual_aton/starboard_lateral.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category]='prefered_port'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/virtual_aton/preferred_port.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category]='preferred_starboard'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/virtual_aton/preferred_starboard.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category]='safe_water'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/virtual_aton/safe_water.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category]='isolated_danger'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/virtual_aton/isolated_danger.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category]='special_purpose'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/virtual_aton/special_purpose.svg"/>
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category]='wreck'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/virtual_aton/wreck.svg"/>
+    </Rule>
+  </Style>
+
+  <Layer name="virtual_aton" status="on" srs="epsg:3857">
+    <StyleName>virtual_aton</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+              , tags->'seamark:virtual_aton:category' as category
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'virtual_aton'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>

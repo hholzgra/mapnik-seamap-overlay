@@ -95,4 +95,5 @@
 
   <xi:include href="inc/signal_station_traffic.xml"/>
   <xi:include href="inc/signal_station_warning.xml"/>
+  <xi:include href="inc/virtual_aton.xml"/>
 </Map>
