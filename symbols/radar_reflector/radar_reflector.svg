@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.0"
+   width="30"
+   height="30"
+   id="svg1"
+   sodipodi:docname="DistanceI.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <symbol
+       id="genericons.svg:feed">
+      <title
+         id="title46">feed</title>
+      <path
+         d="m 2,6 v 2 c 3.309,0 6,2.691 6,6 h 2 C 10,9.582 6.418,6 2,6 Z M 2,2 v 2 c 5.514,0 10,4.486 10,10 h 2 C 14,7.373 8.627,2 2,2 Z m 1.5,9 C 2.671,11 2,11.672 2,12.5 2,13.328 2.671,14 3.5,14 4.329,14 5,13.328 5,12.5 5,11.672 4.329,11 3.5,11 Z"
+         id="path46" />
+    </symbol>
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true"
+     inkscape:zoom="25.966667"
+     inkscape:cx="15"
+     inkscape:cy="16.116816"
+     inkscape:window-width="1824"
+     inkscape:window-height="988"
+     inkscape:window-x="0"
+     inkscape:window-y="64"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <symbol
+     id="distance_i"
+     width="30"
+     height="30">
+    <circle
+       cx="15.0"
+       cy="15.0"
+       r="11.0"
+       style="fill:#ffffff;stroke:#000000;stroke-width:3.0;stroke-opacity:1"
+       id="circle1" />
+  </symbol>
+  <g
+     id="g4"
+     transform="matrix(0.91111406,-0.91111406,0.91111406,0.91111406,-13.259156,19.46327)">
+    <path
+       d="m 9.8279846,9.250321 v 2 c 5.5140004,0 10.0000004,4.486 10.0000004,10 h 2 c 0,-6.627 -5.373,-12 -12.0000004,-12 z"
+       id="path3"
+       style="fill:#000000;stroke:none"
+       sodipodi:nodetypes="ccccc" />
+    <rect
+       style="fill:#000000;stroke:none;stroke-width:1.507;stroke-linejoin:round;stroke-miterlimit:100"
+       id="rect4"
+       width="4.1014123"
+       height="2.006521"
+       x="21.521183"
+       y="19.243799" />
+    <rect
+       style="fill:#000000;stroke:none;stroke-width:1.507;stroke-linejoin:round;stroke-miterlimit:100"
+       id="rect4-9"
+       width="4.1014123"
+       height="2.006521"
+       x="-7.9335446"
+       y="21.152184"
+       transform="matrix(-0.70710678,0.70710678,0.70710678,0.70710678,0,0)" />
+    <rect
+       style="fill:#000000;stroke:none;stroke-width:1.507;stroke-linejoin:round;stroke-miterlimit:100"
+       id="rect4-9-7"
+       width="4.1014123"
+       height="2.006521"
+       x="-16.909609"
+       y="21.942104"
+       transform="matrix(-0.92387953,0.38268343,0.38268343,0.92387953,0,0)" />
+    <rect
+       style="fill:#000000;stroke:none;stroke-width:1.507;stroke-linejoin:round;stroke-miterlimit:100"
+       id="rect4-9-7-2"
+       width="4.1014123"
+       height="2.006521"
+       x="-0.14357778"
+       y="16.731178"
+       transform="matrix(-0.38268343,0.92387953,0.92387953,0.38268343,0,0)" />
+    <rect
+       style="fill:#000000;stroke:none;stroke-width:1.507;stroke-linejoin:round;stroke-miterlimit:100"
+       id="rect4-2"
+       width="4.1014123"
+       height="2.006521"
+       x="5.3402314"
+       y="-11.825468"
+       transform="rotate(90)" />
+  </g>
+</svg>
