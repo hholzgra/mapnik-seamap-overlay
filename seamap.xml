@@ -98,4 +98,6 @@
   <xi:include href="inc/virtual_aton.xml"/>
 
   <xi:include href="inc/radar_reflector.xml"/>
+
+  <xi:include href="inc/platform.xml"/>
 </Map>

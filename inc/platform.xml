@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Include [
+<!ENTITY % scale_entities SYSTEM "scale_entities.ent">
+%scale_entities;
+]>
+<Include xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- see also:
+       * https://wiki.openstreetmap.org/wiki/DE:Tag:seamark:type=platform
+  -->
+
+  <Style name="platform">
+    <Rule>
+      &maxscale_zoom14;
+      <Filter>[category]='fpso'</Filter>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/platform/storage.svg" transform="scale(0.5)" />
+    </Rule>
+    <Rule>
+      &maxscale_zoom14;
+      <ElseFilter/>
+      <MarkersSymbolizer  allow-overlap="true" file="symbols/platform/platform.svg" transform="scale(0.5)" />
+    </Rule>
+  </Style>
+
+  <Layer name="platform" status="on" srs="epsg:3857">
+    <StyleName>platform</StyleName>
+    <Datasource base="gis">
+      <Parameter name="table">
+        (SELECT way
+              , tags->'seamark:platform:category' as category
+           FROM planet_osm_point
+          WHERE tags->'seamark:type' = 'platform'
+        ) AS way
+      </Parameter>
+      <Parameter name="geometry_field">way</Parameter>
+    </Datasource>
+  </Layer>
+
+</Include>
