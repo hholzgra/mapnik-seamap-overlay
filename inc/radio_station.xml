@@ -9,10 +9,10 @@
 
   <Style name="radio_station">
     <Rule>
-      <MarkersSymbolizer allow-overlap="true" file="symbols/radio_station/station.svg" transform="scale(0.5)"/>
+      <MarkersSymbolizer allow-overlap="true" file="symbols/radio_station/station.svg"/>
       <TextSymbolizer fontset-name="regular" size="9" fill="black"
-                      dx="-10" dy="-10" placement="point" allow-overlap="true">[label]</TextSymbolizer>
-      <ArcSymbolizer radius="30" arc-stroke="magenta"/>
+                      dx="-20" dy="-20" placement="point" allow-overlap="true">[label]</TextSymbolizer>
+      <ArcSymbolizer radius="60" arc-stroke="magenta"/>
     </Rule>
   </Style>
 
@@ -45,6 +45,7 @@
                  end as label
            FROM planet_osm_point
           WHERE tags->'seamark:type' = 'radio_station'
+             OR tags->'seamark:radio_station:category' IS NOT NULL
         ) AS way
       </Parameter>
       <Parameter name="geometry_field">way</Parameter>
