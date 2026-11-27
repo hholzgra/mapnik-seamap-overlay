@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    version="1.0"
-   width="30"
-   height="30"
+   width="20"
+   height="20"
    id="svg1"
-   sodipodi:docname="DistanceI.svg"
+   sodipodi:docname="radar_reflector.svg"
    inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -32,7 +32,7 @@
      inkscape:deskcolor="#d1d1d1"
      showguides="true"
      inkscape:zoom="25.966667"
-     inkscape:cx="15"
+     inkscape:cx="15.019255"
      inkscape:cy="16.116816"
      inkscape:window-width="1824"
      inkscape:window-height="988"
@@ -45,15 +45,15 @@
      width="30"
      height="30">
     <circle
-       cx="15.0"
-       cy="15.0"
-       r="11.0"
-       style="fill:#ffffff;stroke:#000000;stroke-width:3.0;stroke-opacity:1"
+       cx="15"
+       cy="15"
+       r="11"
+       style="fill:#ffffff;stroke:#000000;stroke-width:3;stroke-opacity:1"
        id="circle1" />
   </symbol>
   <g
      id="g4"
-     transform="matrix(0.91111406,-0.91111406,0.91111406,0.91111406,-13.259156,19.46327)">
+     transform="matrix(0.60648885,-0.60648885,0.60648885,0.60648885,-8.810887,12.971004)">
     <path
        d="m 9.8279846,9.250321 v 2 c 5.5140004,0 10.0000004,4.486 10.0000004,10 h 2 c 0,-6.627 -5.373,-12 -12.0000004,-12 z"
        id="path3"
